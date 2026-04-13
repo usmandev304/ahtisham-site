@@ -66,7 +66,7 @@ export default function Chat() {
       >
         <div className="trigger-glow"></div>
         <div className={`trigger-icon-wrapper ${isOpen ? "bg-dark" : "bg-red"}`}>
-          {isOpen ? <X size={24} /> : <FaFacebookMessenger size={23} />}
+          {isOpen ? <X size={24} /> : <FaFacebookMessenger  className="chat-ionc"/>}
         </div>
       </motion.button>
     </div>

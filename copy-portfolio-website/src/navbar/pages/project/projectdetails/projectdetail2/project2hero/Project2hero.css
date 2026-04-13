@@ -271,7 +271,7 @@
 }
 
 .form-container {
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -381,4 +381,48 @@
 
 .directional-card:hover::before {
   opacity: 1;
+}
+
+@media (max-width: 1200px) {
+    .projectdetail-layout {
+        max-width: 950px;
+    }
+}
+
+@media (max-width: 992px) {
+    .projectHero {
+        max-width: 700px;
+        margin: auto;
+    }
+
+      .projectdetail-layout {
+        max-width: 700px;
+        flex-direction: column;
+        gap: 1px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projectHero {
+        max-width: 510px;
+    }
+
+    .projectdetail-layout {
+        max-width: 510px;
+    }
+}
+
+@media (max-width: 575px) {
+    .projectHero {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+        max-width: 630px;
+        margin-top: 60px;
+    }
+
+    .projectdetail-layout {
+          padding-left: 0.9rem;
+        padding-right: 0.9rem;
+        max-width: 630px;
+    }
 }

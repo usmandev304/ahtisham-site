@@ -238,6 +238,21 @@
 @media (max-width: 1200px) {
     .project-header-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 1110px;
+    }
+
+    .hover-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .project-header-grid {
+        max-width: 860px;
+    }
+
+    .hover-container {
+        height: 380px;
     }
 }
 
@@ -245,11 +260,17 @@
     .project-header-grid {
         grid-template-columns: 1fr;
         padding: 40px;
+        max-width: 600px;
+    }
+
+    .hover-container {
+        height: 560px;
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 575px) {
     .project-header-image-wrapper {
-        height: 250px;
+        height: 90vw;
+        max-width: 950px;
     }
 }

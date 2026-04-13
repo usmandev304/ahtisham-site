@@ -277,7 +277,7 @@
 }
 
 .form-container {
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     display: flex;
     justify-content: center;
     align-items: center;

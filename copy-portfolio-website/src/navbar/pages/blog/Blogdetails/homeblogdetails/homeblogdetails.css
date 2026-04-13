@@ -79,3 +79,9 @@
 .homeblog-breadcrumb-item.current {
     color: #e60023; 
 }
+
+@media (max-width: 575px) {
+    .homeblog-header-title {
+        font-size: 32px;
+    }
+}

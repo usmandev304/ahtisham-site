@@ -76,3 +76,11 @@
   font-family: sans-serif;
 
 }
+
+@media (max-width: 575px) {
+  .hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 15px;
+  }
+}

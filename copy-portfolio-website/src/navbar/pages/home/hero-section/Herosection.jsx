@@ -19,6 +19,8 @@ import ContactSection from "../ContactSection/ContactSection";
 import HomeBlog from "../homeblog/homeblog";
 import Homeblogcard from "../homeblog/homeblogcard/homeblogcard";
 import { motion } from 'framer-motion';
+import { TfiDownload } from "react-icons/tfi";
+import { Link } from "react-router-dom";
 
 export default function herosection() {
   return (
@@ -28,16 +30,24 @@ export default function herosection() {
           <div className="home-hero-content">
             <h4 className="home-hero-greeting">HELLO</h4>
             <h1 className="home-hero-title">
-              i'm Jane Cooper a <br />
+              i'm Hassan Farooqi a <br />
               <TypeEffect />
             </h1>
             <p className="home-hero-description">
-              A personal portfolio is a collection of your work, achievements, and skills
-              that highlights your abilities and professional growth. It serves as
+             ransforming complex ideas into scalable digital solutions. With a background in Web Design and a deep focus on AI Development, I lead teams to build intelligent, user-centric products that drive real-world impact.
             </p>
+            <div className="home-header-btns">
             <button className="home-hero-btn">
-              <span className="home-hero-btn-span">View Portfolio</span>  <span><FaArrowRight className="arrow" /></span>
+              <Link to="/project" className="home-hero-btn-link">
+                <span className="home-hero-btn-span">View Portfolio</span>  <span><FaArrowRight className="arrow" /></span>
+              </Link>
             </button>
+            <button className="home-hero-btn">
+              <a href="/cv.pdf" download="Hassan_Farooqi Senior Full Stack Developer And Team Lead" className="home-hero-btn-link">
+                <span className="home-hero-btn-span">Download CV</span>  <span><TfiDownload className="arrow" /></span>
+              </a>
+            </button>
+            </div>
           </div>
 
           <div className="home-hero-image-wrapper">

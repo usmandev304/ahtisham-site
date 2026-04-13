@@ -1,8 +1,6 @@
-/* Existing container ko update karein */
 .chat-container {
     position: fixed;
     bottom: 20px;
-    /* Default position */
     right: 20px;
     z-index: 100;
     font-family: 'Rajdhani', sans-serif;
@@ -10,14 +8,11 @@
     flex-direction: column;
     align-items: flex-end;
 
-    /* Smooth movement ke liye transition add karein */
     transition: bottom 0.3s ease-in-out;
 }
 
-/* Jab user scroll karega tab ye class apply hogi */
 .chat-container.scrolled {
     bottom: 80px;
-    /* Jab scroll ho tab margin 40px ho jaye */
 }
 
 .chat-window {
@@ -40,7 +35,6 @@
     }
 }
 
-/* Header Styles */
 .chat-header {
     background-color: #FF014F;
     padding: 1rem;
@@ -97,7 +91,6 @@
 
 
 
-/* Messages Area */
 .chat-messages {
     flex: 1;
     overflow-y: auto;
@@ -130,7 +123,6 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Form Styles */
 .chat-input-form {
     padding: 0.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -166,7 +158,6 @@
     justify-content: center;
 }
 
-/* Trigger Button */
 .chat-trigger {
     position: relative;
     background: none;
@@ -214,7 +205,6 @@
     font-weight: 500;
 }
 
-/* Body Content Styling */
 .chat-body-content {
     padding: 20px;
     background-color: #111;
@@ -233,7 +223,6 @@
     line-height: 1.5;
 }
 
-/* Form Container with Border */
 .chat-contact-form {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -248,7 +237,6 @@
     gap: 24px;
 }
 
-/* Input Fields */
 .form-field {
     width: 100%;
     background-color: #0c0c0c;
@@ -271,7 +259,6 @@
     resize: none;
 }
 
-/* Submit Button */
 .submit-msg-btn {
     background-color: #FF014F;
     color: white;
@@ -294,8 +281,25 @@
     transform: scale(0.98);
 }
 
-/* Scroll adjustments */
 .chat-container.scrolled {
     bottom: 80px;
 }
 
+.chat-ionc {
+    font-size: 23px
+}
+
+@media (max-width: 575px) {
+    .trigger-icon-wrapper {
+        width: 37px;
+        height: 37px;
+    }
+
+    .chat-ionc {
+        font-size: 21px
+    }
+
+    .chat-window {
+        width: 289px;
+    }
+}

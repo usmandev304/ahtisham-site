@@ -17,6 +17,10 @@ import project15 from '../../../../assets/grandroyale (1).jpg';
 import project16 from '../../../../assets/ormith (1).jpg';
 import project17 from '../../../../assets/4n.png';
 import project18 from '../../../../assets/newyorker.jpeg';
+import project19 from '../../../../assets/legal.jpg';
+// import project20 from '../../../../assets/project20.jpg';
+// import project21 from '../../../../assets/project21.jpg';
+// import project22 from '../../../../assets/project22.jpg';
 import { MdArrowOutward } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import ProjectDetails from './project-details/projectDetails';
@@ -67,7 +71,7 @@ export default function ProjectHeader() {
     },
     {
       id: 7,
-      title: "Twon",
+      title: "Jantrading",
       category: "Development",
       imageUrl: project7,
       links: "http://jantradingco.jp/"
@@ -121,7 +125,7 @@ export default function ProjectHeader() {
       imageUrl: project14,
       links: "https://www.servrhotels.com//"
     },
-   {
+    {
       id: 15,
       title: "Grand Royale Group",
       category: "Development",
@@ -135,21 +139,48 @@ export default function ProjectHeader() {
       imageUrl: project16,
       links: "https://ormith.com/"
     },
-      {
+    {
       id: 17,
       title: "Saksfifthavenue",
       category: "Development",
       imageUrl: project17,
       links: "https://www.saksfifthavenue.com/"
     },
-     {
+    {
       id: 18,
       title: "The New Yorker",
       category: "Development",
       imageUrl: project18,
       links: "https://www.newyorker.com/"
+    },
+    {
+      id: 19,
+      title: "LEGAL MOMO",
+      category: "Development",
+      imageUrl: project19,
+      links: "https://legalmomo.com/"
+    },
+    {
+      id: 20,
+      title: "Signin - QEF",
+      category: "Development",
+      // imageUrl: project20,
+      links: "https://qef-fe.vercel.app/"
+    },
+    {
+      id: 21,
+      title: "Samsungnac",
+      category: "Development",
+      // imageUrl: project21,
+      links: "http://samsungnac.co.za/"
+    },
+        {
+      id: 22,
+      title: "Barney's",
+      category: "Development",
+      // imageUrl: project22,
+      links: "https://barneysbeer.co.uk/"
     }
-   
   ];
 
   return (

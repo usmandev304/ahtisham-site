@@ -7,7 +7,6 @@
     margin-top: 120px;
 }
 
-/* Grid Layout for Main Content */
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1.1fr;
@@ -19,7 +18,6 @@
     margin-top: 60px;
 }
 
-/* Headings */
 .footer-section h3 {
     font-size: 24px;
     font-family: Rajdhani;
@@ -28,11 +26,11 @@
     color: #ffffff;
 }
  
-/* --- Brand Section --- */
 .logofooter {
     width: 110px;
     height: 40px;
     margin-bottom: 25px;
+    visibility: hidden;
 }
 .hero-headline {
     font-size: 50px;
@@ -51,7 +49,6 @@
     color: #ffffff;
 }
 
-/* Newsletter Input */
 .newsletter-form {
     display: flex;
     align-items: center;
@@ -88,7 +85,6 @@
     align-items: center;
 }
 
-/* --- Quick Links Section --- */
 .links-section ul {
     list-style: none;
     padding: 0;
@@ -137,7 +133,6 @@
     transform: scaleX(1);
 }
 
-/* hover out (reverse animation from right) */
 .links-section a::after {
     transform-origin: right;
 }
@@ -152,16 +147,15 @@
     background-color: #FF014F;
 
     transform: scaleX(0);
-    transform-origin: right; /* default for hide */
+    transform-origin: right; 
     transition: transform 0.4s ease;
 }
 
 .links-section a:hover::after {
     transform: scaleX(1);
-    transform-origin: left; /* grow from left */
+    transform-origin: left; 
 }
 
-/* --- Contact Section --- */
 .contact-list {
     display: flex;
     flex-direction: column;
@@ -211,7 +205,6 @@
     transition: transform 0.4s ease;
 }
 
-/* hover effect */
 
 .contact-item p:hover {
     color: #FF014F;
@@ -223,7 +216,6 @@
     transform-origin: left;
 }
 
-/* Social Icons */
 .social-links {
     display: flex;
     gap: 15px;
@@ -246,7 +238,6 @@
     background-color: #FF014F;
 }
 
-/* --- Bottom Bar --- */
 .footer-bottom {
     display: flex;
     justify-content: space-between;
@@ -326,7 +317,6 @@
     }
 }
 
-/* --- Responsive Adjustments --- */
 @media screen and (max-width: 992px) {
     .footer-content {
         max-width: 700px;
@@ -359,22 +349,6 @@
         gap: 10px;
     }
 }
-
-/* @media screen and (max-width: 600px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .hero-headline {
-        font-size: 2rem;
-    }
-} */
 
 @media (max-width: 575px) {
     .footer-content {

@@ -85,7 +85,7 @@ export default function MobileSidebar({ isOpen, onClose, socialLinks }) {
               <span className="drop">SERVICES</span> <MdKeyboardArrowDown className="arrow-icon-left" />
             </div>
             <div className="dropdown-content">
-              <Link to="/services" onClick={onClose}>ALL SERVICES</Link>
+              <Link to="/services" onClick={onClose}>SERVICE</Link>
               <Link to="/services-details" onClick={onClose}>SERVICE DETAILS</Link>
             </div>
           </div>
