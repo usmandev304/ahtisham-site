@@ -1,0 +1,180 @@
+/* Container */
+.experience-containers {
+  max-width: 1270px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+/* Grid Layout */
+.experience-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* left = text, right = image */
+  gap: 2rem;
+  position: relative;
+}
+
+/* Heading spans both columns */
+.experience-heading {
+  grid-column: 1 / -1;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Left column - Text Cards */
+.experience-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-card {
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.experience-card-title {
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.experience-card-number {
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 4px;
+  font-family: sans-serif;
+}
+
+.experience-card-description {
+  color: #bab6b6;
+  line-height: 1.6;
+  max-width: 450px;
+  font-size: 0.95rem;
+  font-family: sans-serif;
+}
+
+.role {
+  font-size: 24px;
+  font-family: Rajdhani;
+  font-weight: 700;
+
+  margin-bottom: 3px;
+}
+
+.company {
+  font-size: 18px;
+  font-family: Rajdhani;
+  font-weight: 500;
+}
+
+/* Right column - Image */
+.experience-image-container {
+  display: flex;
+  justify-content: center;
+  /* horizontally center */
+  align-items: flex-end;
+  /* bottom alignment inside flex */
+  margin-top: auto;
+  /* push to bottom of grid row */
+}
+
+
+.experience-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+/* Responsive - Stack on small screens */
+@media screen and (max-width: 1024px) {
+  .experience-content {
+    grid-template-columns: 1fr;
+    /* single column */
+  }
+
+  .experience-image-container {
+    margin-top: 2rem;
+    /* spacing below text cards */
+    align-items: center;
+    /* center image horizontally */
+  }
+}
+
+@media (max-width: 1200px) {
+  .experience-containers {
+    max-width: 860px;
+    margin: auto;
+  }
+
+  .experience-content {
+    grid-template-columns: 1fr 1fr;
+    /* Switch to single column */
+    gap: 3rem;
+  }
+
+  .experience-card-description {
+    max-width: 380px;
+  }
+
+  .experience-image-container {
+    margin-bottom: 120px;
+  }
+
+  .experience-image {
+    width: 800px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .experience-containers {
+    max-width: 620px;
+  }
+
+  .experience-content {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card-number {
+    margin-top: 25px;
+  }
+
+  .experience-card-description {
+    max-width: 100%;
+    margin-top: 18px;
+  }
+
+  .experience-image-container {
+    margin-bottom: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-containers {
+    max-width: 420px;
+  }
+
+  .experience-card-description {
+    line-height: 1.9;
+  }
+}
+
+@media (max-width: 575px) {
+  .experience-containers {
+ width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0 15px;
+  }
+
+  .experience-content {
+    gap: 0px;
+  }
+}

@@ -1,0 +1,46 @@
+.type-container {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Typing text */
+.type-text {
+  color: #FF014F;
+  font-weight: bold;
+  font-size: 54px;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cursor */
+.type-cursor {
+  display: inline-block;
+  width: 4px;
+  height: 55px;
+  background-color: #ffffff;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .type-text {
+    font-size: 47px;
+  }
+
+  .type-cursor {
+    height: 67px;
+  }
+}
+
+@media (max-width: 640px) {
+  .type-text {
+    font-size: 30px;
+  }
+
+  .type-cursor {
+    height: 40px;
+  }
+}

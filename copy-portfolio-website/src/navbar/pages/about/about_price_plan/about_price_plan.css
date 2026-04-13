@@ -1,0 +1,57 @@
+.about-price_plan-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 110px;
+  font-family: 'Inter', sans-serif;
+  /* Use a modern sans-serif font */
+}
+
+.about-price_plan-container {
+  max-width: 800px;
+}
+
+.about-price_plan-subtitle {
+  color: #e60026;
+  /* Vibrant red */
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Rubik;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.about-price_plan-title {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 47px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1200px) {
+  .about-price_plan-title {
+    margin-bottom: 55px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-price_plan-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-price_plan-section {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-price_plan-section {
+    margin-top: 60px;
+  }
+}

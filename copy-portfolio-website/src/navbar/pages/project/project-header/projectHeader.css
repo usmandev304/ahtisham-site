@@ -1,0 +1,255 @@
+.project-header-container {
+    background-color: #000;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.project-header-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px;
+    justify-content: center;
+    max-width: 1430px;
+    margin: auto;
+    padding: 80px 80px 0;
+    padding-top: 115px;
+}
+
+.project-header-card {
+    min-width: 0;
+    max-width: none;
+}
+
+.project-header-image-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    position: relative;
+    height: 450px;
+}
+
+.project-header-image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1) translateY(0%);
+    transition: transform 0.4s ease;
+    height: 680px;
+}
+
+.project-header-image-wrapper:hover .project-header-image {
+    transform: scale(1.2) translateY(-10%);
+}
+
+.project-header-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Rajdhani;
+    margin: 0 0 8px 0;
+}
+
+.project-header-category {
+    color: #888888;
+    font-size: 16px;
+    font-family: Rubik;
+    margin: 0;
+}
+
+.project-header-arrow-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    color: #fff;
+    font-size: 2rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.project-header-image-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    aspect-ratio: 16 / 10;
+    position: relative;
+}
+
+.project-header-image {
+    width: 100%;
+    height: 680px;
+    object-fit: cover;
+    display: block;
+    transform: scale(1) translateY(0%);
+    transition: transform 0.4s ease;
+}
+
+.project-header-card:hover .project-header-image {
+    transform: scale(1.2) translateY(-10%);
+}
+
+
+.project-header-arrow-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    color: #fff;
+    font-size: 1.8rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    background-color: #FF014F;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 32px;
+    box-sizing: content-box;
+}
+
+.project-header-card:hover .project-header-arrow-icon {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+}
+
+.project-header-card:hover .project-header-arrow-icon:hover {
+    transform: translate(-50%, -50%) scale(1) rotate(40deg) !important;
+}
+
+.project-header-arrow-icon:hover {
+    background-color: #e00045;
+}
+
+
+.hover-container {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #0f0f1c;
+}
+
+.project-header-image.main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 155%;
+    object-fit: cover;
+    transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(0);
+}
+
+.two-images-group {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(0);
+}
+
+.two-images-group img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* For the main-image in hover-container */
+.project-header-card:hover .hover-container .project-header-image.main-image {
+    transform: translateX(-100%);
+}
+
+.project-header-card:hover .hover-container .two-images-group {
+    transform: translateX(-100%);
+}
+
+.project-header-arrow-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #fff;
+    font-size: 1.8rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    background-color: #FF014F;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 32px;
+    box-sizing: content-box;
+}
+
+.hover-container:hover .project-header-arrow-icon {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+.project-header-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Rajdhani;
+    margin: 0 0 8px 0;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.project-header-title::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fbf8f9;
+    transition: width 0.4s ease-in-out;
+}
+
+.project-header-title:hover {
+    color: #FF014F;
+    cursor: pointer;
+}
+
+.project-header-title:hover::after {
+    width: 100%;
+}
+
+.project-header-title:hover {
+    color: #FF014F;
+}
+
+.project-header-title:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .project-header-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .project-header-grid {
+        grid-template-columns: 1fr;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 425px) {
+    .project-header-image-wrapper {
+        height: 250px;
+    }
+}

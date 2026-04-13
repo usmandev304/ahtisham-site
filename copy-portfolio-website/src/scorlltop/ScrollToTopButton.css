@@ -1,0 +1,129 @@
+/* Scroll to Top Button - COMPLETE FIX */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 18px;
+    right: 24px;
+    z-index: 9999;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgba(17, 17, 17, 0.98);
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    touch-action: manipulation;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.scroll-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Wave Fill Container */
+.wave-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    transform: translateY(calc(100% - var(--scroll-percent, 0%)));
+    background-color: #FF014F;
+    transition: transform 0.15s ease-out;
+    z-index: 0;
+}
+ 
+/* Rest of your styles remain the same... */
+
+/* Wave animation */
+.wave-fill::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    bottom: -50%;
+    left: -25%;
+    background: linear-gradient(45deg, #FF014F, #FF614F);
+    border-radius: 38%;
+    animation: waveRotation 6s linear infinite;
+    z-index: -2;
+}
+
+.wave-fill::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    bottom: -50%;
+    left: -25%;
+    /* background: rgba(255, 255, 255, 0.2); */
+    border-radius: 40%;
+    animation: waveRotation 10s linear infinite reverse;
+    z-index: -1;
+}
+
+@keyframes waveRotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Icon */
+.scroll-btn-icon {
+    position: relative;
+    z-index: 10;
+    color: #fff;
+    font-size: 20px;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+/* Hover */
+.scroll-to-top-btn:hover .scroll-btn-icon {
+    transform: translateY(-3px);
+}
+
+/* Active */
+.scroll-to-top-btn:active {
+    transform: scale(0.9);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .scroll-to-top-btn {
+        /* bottom: 80px; */
+        /* Move up to avoid chat button */
+        right: 24px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .scroll-btn-icon {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top-btn {
+        bottom: 75px;
+        /* Adjust for mobile */
+        right: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
+

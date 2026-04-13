@@ -1,0 +1,69 @@
+.portfolio-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 110px;
+  font-family: 'Inter', sans-serif; /* Use a modern sans-serif font */
+}
+
+.portfolio-container {
+  max-width: 800px;
+}
+
+.portfolio-subtitle {
+  color: #e60026; /* Vibrant red */
+  font-size: 17px;
+  font-weight: 700;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.portfolio-title {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+.portfolio-description {
+  color: #a0a0a0;
+  font-size: 16px;
+  line-height: 1.6;
+  /* width: 600px; <--- Isse hata kar niche wala use karein */
+  /* max-width: 00px;  */
+  /* width: 90%; Taaki mobile par screen se touch na ho */
+  /* margin: 0 auto; */
+  font-family: sans-serif;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .portfolio-title {
+    font-size: 32px;
+  }
+  
+  .portfolio-description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .portfolio-section {
+    max-width: 200px;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .portfolio-title {
+    font-size: 28px;
+  }
+  .portfolio-description {
+    /* width: 100%; */
+    /* max-width: 100%; */
+    /* padding: 0 20px; Padding kam karein taaki text ke liye jagah bache */
+    /* box-sizing: border-box; */
+  }
+}

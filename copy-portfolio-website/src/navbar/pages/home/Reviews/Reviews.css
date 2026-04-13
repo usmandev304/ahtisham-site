@@ -1,0 +1,161 @@
+.reviews-section {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin-top: 80px;
+}
+
+.reviews-container {
+  max-width: 1272px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 21px;
+}
+
+.review-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+/* Background Image */
+.review-bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 65%;
+  height: 100%;
+  opacity: 0.5;
+  transition: all 0.4s ease;
+}
+
+.review-bg img {
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.review-bg {
+  opacity: 0.9;
+  width: 62%;
+  height: 505px;
+}
+
+/* Content */
+.review-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 46px;
+}
+
+.review-text {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.5;
+  max-width: 370px;
+  margin-bottom: 22px;
+}
+
+/* User Info */
+.review-user h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.review-user p {
+  font-size: 15px;
+  color: #aaa;
+  font-family: sans-serif;
+}
+
+/* Quote Icon */
+.quote-icon {
+  margin-top: 23px;
+}
+
+.quote-img {
+    width: 105px;
+    height: 105px;
+}
+
+.quote-icon svg {
+  stroke: #ff0055;
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover .quote-icon svg {
+  transform: translateY(-5px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .reviews-container {
+    max-width: 950px;
+  }
+
+  .review-text {
+    font-size: 20px;
+  }
+
+  .review-bg {
+    height: 355px;
+  }
+}
+
+@media (max-width: 992px) {
+  .reviews-container {
+    max-width: 710px;
+    gap: 35px;
+  }
+
+  .review-text {
+    font-size: 20px;
+  }
+
+  
+  .review-bg {
+    height: 190px;
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-container {
+    grid-template-columns: 1fr;
+    max-width: 505px;
+    gap: 0;
+  }
+  .reviews-section {
+    padding: 0 20px;
+    margin-top: 15px;
+  }
+
+  .review-text {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .review-bg {
+    display: none;
+  }
+
+  .quote-img {
+    width: 82px;
+  }
+}
+
+@media (max-width: 575px) {
+  .reviews-container {
+    max-width: 560px;
+  }
+
+  .reviews-section {
+    padding: 0 17px;
+  }
+}

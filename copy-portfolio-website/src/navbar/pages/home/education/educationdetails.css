@@ -1,0 +1,338 @@
+/* Base service card */
+.service-cards {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* Create pseudo-elements for border effect */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.home-services-card-title {
+  font-size: 16px;
+  font-family: Rubik;
+}
+
+/* Directional borders on hover based on React state class */
+/* .service-card.left-top::before {
+  border-left-color: #FF014F;
+  border-top-color: #FF014F;
+}
+
+.service-card.left-bottom::before {
+  border-left-color: #FF014F;
+  border-bottom-color: #FF014F;
+}
+
+.service-card.right-top::before {
+  border-right-color: #FF014F;
+  border-top-color: #FF014F;
+}
+
+.service-card.right-bottom::before {
+  border-right-color: #FF014F;
+  border-bottom-color: #FF014F;
+} */
+
+
+/* Container Styles */
+.education-container {
+  background-color: #000000;
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .education-container {
+    padding: 4.8rem 2rem 0;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .education-title {
+    padding-left: 0px;
+  }
+}
+
+
+
+.home-education-container {
+  padding: 2.9rem 0 2.5rem;
+}
+.education-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .education-content-wrapper {
+    flex-direction: row;
+  }
+}
+
+/* Services Grid */
+.services-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Service Card Styles */
+.service-card {
+  background-color: #141414;
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition-property: background-color;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.service-card:hover {
+  background-color: #1a1a1a;
+}
+
+/* Border animation effects - keeping your existing border logic */
+.service-card.left-top {
+  border-left: 1px solid #FF014F;
+  border-top: 1px solid #FF014F;
+}
+
+.service-card.left-bottom {
+  border-left: 1px solid #FF014F;
+  border-bottom: 1px solid #FF014F;
+}
+
+.service-card.right-top {
+  border-right: 1px solid #FF014F;
+  border-top: 1px solid #FF014F;
+}
+
+.service-card.right-bottom {
+  border-right: 1px solid #FF014F;
+  border-bottom: 1px solid #FF014F;
+}
+
+.service-cards-title {
+  font-weight: 400;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-family: Rubik;
+}
+
+@media (min-width: 1024px) {
+  .service-cards-title {
+    padding-right: 18px;
+  }
+}
+
+.service-cards-year {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.75rem;
+  display: flex;
+  font-family: Rajdhani;
+  gap: 1.25rem;
+  font-family: 'Rajdhani', sans-serif;
+  margin-bottom: 19px;
+}
+
+@media (min-width: 768px) {
+  .home-services-card-year {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-services-card-year {
+    /* padding-left: 18px; */
+    padding-right: 18px;
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Rajdhani;
+    
+  }
+}
+
+.service-cards-description {
+  color: #9ca3af;
+  font-size: 15px;
+  font-family: Rubik;
+  line-height: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.625;
+}
+
+@media (min-width: 768px) {
+  .home-service-card-description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-service-card-description {
+    padding-right: 18px;
+    font-size: 16px;
+    font-family: Rubik;
+    color: #9ca3af;
+    font-weight: 400;
+    margin-top: 20px;
+  }
+}
+
+/* Update these specific classes */
+
+.education-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 23px;
+  letter-spacing: -0.02em;
+  font-family: Rajdhani;
+}
+
+.title-wrapper {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  /* Aligns title with the grid edges */
+}
+
+/* Responsive adjustments for the title */
+@media (max-width: 768px) {
+  .education-title {
+    font-size: 1.8rem;
+    margin-top: 27px;
+    /* Smaller for mobile */
+    /* text-align: center; */
+    /* Optional: center on mobile */
+  }
+}
+
+.home-service-card {
+  padding: 1.2rem;
+}
+
+
+@media (max-width: 1200px) {
+    .education-container {
+        padding: 1.5rem 2rem 0;
+        max-width: 1010px;
+        margin: auto;
+    }
+    
+    .home-ed {
+      padding: 50px 40px;
+    }
+
+    .home-services-card-year {
+      line-height: 1.5;
+    }
+
+    .services-grid {
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+  .education-container {
+    max-width: 770px;
+    margin: auto;
+  }
+
+  .services-grid {
+    margin-bottom: 70px;
+  }
+
+  .home-services-card-title {
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 400;
+  }
+
+  .home-services-card-year span {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .home-service-card-description {
+    color: #9A9A9A;
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 400;
+    margin-top: 21px;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-content-wrapper {
+    display: block; /* Removed grid from parent wrapper */
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns for cards */
+  }
+
+  .education-container {
+    padding: 0.9rem 2rem 0;
+    max-width: 580px;
+  }
+
+  .services-wrapper {
+    margin-bottom: 40px;
+  }
+  .home-services-card-year span {
+    line-height: 2;
+  }
+
+  .home-ed {
+    padding: 33px 22px;
+  }
+
+  .home-service-card-description {
+    margin-top: 10px;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .education-container {
+    padding: 1.2rem 0rem 0;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    max-width: 560px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column for mobile */
+  }
+}

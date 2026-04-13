@@ -1,0 +1,225 @@
+/* Main Section Wrapper */
+.blog-section-wrapper {
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    margin-top: 60px;
+}
+ 
+/* Grid Layout */
+.blog-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+/* Individual Card */
+.blog-card {
+    background-color: #0c0c0e;
+    /* Slightly lighter than the background */
+    border: 1px solid #1f1f22;
+    /* Subtle border */
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+/* Image Section */
+.blog-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 288px;
+    overflow: hidden;
+}
+
+.blog-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image {
+    transform: scale(1.05);
+    border-radius: 20px;
+}
+
+/* Floating Badge overlay */
+.blog-badge {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    /* Glassmorphism effect */
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: Rubik;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.badge-icon {
+    font-size: 12px;
+    color: #aaaaaa;
+}
+
+/* Content Area */
+.blog-content {
+    padding: 23px 30px 57px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Pushes the Read More link to the bottom */
+    justify-content: space-between;
+}
+.blogs-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 30px 0;
+    position: relative;
+    display: inline-block;
+
+    /* Underline setup */
+    background-image: linear-gradient(#fff);
+    background-size: 0% 2px; /* start from 0% */
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-size 0.4s ease;
+}
+
+
+
+.blog-read-more {
+    position: relative; /* pseudo-element ke liye */
+    color: #aaaaaa;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    font-family: Rubik;
+    align-items: center;
+    gap: 1px;
+    transition: color 0.3s ease;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.blog-read-more:hover {
+    color: #ff014f;
+}
+
+/* Underline pseudo-element */
+.blog-read-more::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff014f;
+    transform: scaleX(0);
+    transform-origin: left; /* hover pe left→right */
+    transition: transform 0.4s ease;
+}
+
+/* Hover: show underline left→right */
+.blog-read-more:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Hover out: smooth reverse animation right→left */
+.blog-read-more:not(:hover)::after {
+    transform: scaleX(0);
+    transform-origin: right; /* reverse from right */
+}
+
+.read-more-icon {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 1200px) {
+    .blog-grid-container {
+        max-width: 930px;
+    }
+
+    .blog-card {
+        height: 408px;
+    }
+
+    .blog-content {
+        padding: 23px 18px 22px;
+    }
+
+    .blogs-title {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .blog-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-grid-container {
+        max-width: 500px;
+    }
+
+    .blog-image-wrapper {
+        height: 200px;
+    }
+}
+
+@media (max-width: 575px) {
+    .blog-grid-container {
+        grid-template-columns: 1fr;
+        max-width: 540px;
+    }
+
+    .blog-image-wrapper {
+        height: auto;
+    }
+
+    .blog-card {
+        height:auto;
+        padding: 0 10px;
+    }
+
+}

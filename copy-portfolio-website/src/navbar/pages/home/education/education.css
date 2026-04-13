@@ -1,0 +1,117 @@
+.education-container {
+    background-color: black;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.education-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 1270px;
+    margin: auto;
+}
+
+.education-eyebrow {
+    color: #FF014F;
+    font-size: 16px;
+    font-family: Rubik;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 0.25rem;
+}
+
+.education-heading, .education-headings {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    max-width: 36rem;
+    line-height: 1.2;
+    animation: education-heading-animate 1s ease forwards;
+}
+
+@keyframes education-heading-animate {
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.education-description {
+    color: #9ca3af;
+    font-size: 1rem;
+    font-family: 'Rubik', sans-serif;
+    max-width: 650px;
+    line-height: 1.625;
+    animation: education-description-animate 1s ease forwards;
+}
+
+@keyframes education-description-animate {
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for responsive design */
+@media (min-width: 768px) {
+    .education-heading {
+        font-size: 3rem;
+    }
+    
+    .education-description {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .education-description {
+        font-size: 16px;
+    font-family: Rubik;
+    }
+}
+
+@media (max-width: 992px) {
+    .education-headings {
+        font-size: 42px;
+    }
+
+    .education-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-headings {
+        font-size: 32px;
+        max-width: 400px;
+    }
+
+    .education-description {
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .education-heading {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 575px) {
+    .education-headings {
+        font-size: 28px;
+        max-width: 502px;
+    }
+
+    .education-description {
+        max-width: 502px;
+    }
+}

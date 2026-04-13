@@ -1,0 +1,106 @@
+/* Container jo poori width cover karega */
+.skill-containers {
+    background-color: #000000; /* Deep Black */
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    align-items: center;
+    margin-top: 128px;
+    margin-bottom: 50px;
+}
+
+.skill-content {
+    max-width: 1275px;
+    margin: auto;
+}
+
+/* Chhota red text upar wala */
+.skill-subtitle {
+    color: #f9004d; /* Pinkish Red shade */
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-family: Rubik, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Main Heading */
+.skill-titles {
+    color: #ffffff;
+    font-size: 49px; /* Bada heading size */
+    font-weight: 800;
+    line-height: 1.2; /* Line height tight rakhne ke liye */
+    margin: 0;
+    letter-spacing: -1px; /* Modern look ke liye */
+}
+
+/* Responsive adjustment mobile ke liye */
+@media (max-width: 1200px) {
+    .skill-containers {
+        max-width: 940px;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    .service-container {
+        max-width: 940px;
+        margin: auto;
+    }
+
+    .skill-subtitle {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+ .skill-containers {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 85px;
+    margin-bottom: 48px;
+ } 
+
+ .service-container {
+    max-width: 700px;
+ }
+
+ .skill-titles {
+    font-size: 42px;
+ }
+}
+
+@media (max-width: 768px) {
+     .skill-containers {
+    max-width: 550px;
+    margin: auto;
+    margin-top: 45px;
+    margin-bottom: 0px;
+ } 
+
+ .service-container {
+    max-width: 510px;
+ }
+
+    .skill-titles {
+        font-size: 32px;
+        font-family: Rajdhani;
+    }
+    .skill-containers {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .skill-containers {
+        max-width: 580px;
+        padding: 20px 14px;
+    }
+
+    
+ .service-container {
+    max-width: 580px;
+        padding: 0px 14px;
+
+ }
+}

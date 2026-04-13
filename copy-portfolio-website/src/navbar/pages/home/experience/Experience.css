@@ -1,0 +1,41 @@
+
+.stat-card {
+  position: relative;
+  background: #18181b;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: border 0.3s, box-shadow 0.3s;
+  border: none;
+}
+.stat-card.border-left::before,
+.stat-card.border-right::before,
+.stat-card.border-top::before,
+.stat-card.border-bottom::before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+.stat-card.border-left::before {
+  left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(to bottom, #ff5f8f, #ff014f);
+}
+.stat-card.border-right::before {
+  right: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(to bottom, #ff5f8f, #ff014f);
+}
+.stat-card.border-top::before {
+  left: 0; top: 0; right: 0; height: 4px;
+  background: linear-gradient(to right, #ff5f8f, #ff014f);
+}
+.stat-card.border-bottom::before {
+  left: 0; right: 0; bottom: 0; height: 4px;
+  background: linear-gradient(to right, #ff5f8f, #ff014f);
+}
+.stat-card:not(.border-left):not(.border-right):not(.border-top):not(.border-bottom)::before {
+  opacity: 0;
+}
+

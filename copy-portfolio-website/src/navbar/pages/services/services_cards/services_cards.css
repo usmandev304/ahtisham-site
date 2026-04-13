@@ -1,0 +1,129 @@
+/* Container styling */
+.services_section {
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.services_grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 33px;
+    max-width: 1280px;
+    margin: auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .services_grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 115px;
+    }
+}
+
+/* Card Styling */
+.services_card_item {
+    background-color: #121212;
+    /* Deep dark gray like the image */
+    border-radius: 20px;
+    padding: 31px 41px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent;
+    /* Logic for hover border */
+}
+
+.services_card_item:hover {
+    background-color: #181818;
+}
+
+/* Header: Number and Title */
+.services_card_header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.service_id {
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.service_title {
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+/* Description text */
+.service_desc {
+    color: #a0a0a0;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Directional Border Animation (matching your logic) */
+.services_card_item.left-top {
+    border-left-color: #ff014f;
+    border-top-color: #ff014f;
+}
+
+.services_card_item.left-bottom {
+    border-left-color: #ff014f;
+    border-bottom-color: #ff014f;
+}
+
+.services_card_item.right-top {
+    border-right-color: #ff014f;
+    border-top-color: #ff014f;
+}
+
+.services_card_item.right-bottom {
+    border-right-color: #ff014f;
+    border-bottom-color: #ff014f;
+}
+
+@media (max-width: 1200px) {
+    .services_grid {
+        max-width: 940px;
+    }
+}
+
+@media (max-width: 992px) {
+    .services_grid {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services_grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 520px;
+    }
+
+    .services_section {
+        margin-top: 50px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .services_grid {
+        grid-template-columns: 1fr;
+        max-width: 590px;
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+    }
+    
+    .services_section {
+        margin-top: 50px !important;
+    }
+}

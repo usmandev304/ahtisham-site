@@ -1,0 +1,191 @@
+.pricing-container {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1280px;
+  margin: auto;
+  width: 100%;
+  align-items: center;
+}
+
+.pricing-card {
+  background-color: #0f0f0f;
+  border-radius: 24px;
+  padding: 40px;
+  color: white;
+  transition: transform 0.3s ease;
+  border: 1px solid #1a1a1a;
+}
+
+/* Featured Card (Middle one) */
+.pricing-card.featured {
+  background-color: #111;
+  padding: 50px 40px;
+  border: 1px solid #222;
+}
+
+.plan-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  font-family: Rajdhani;
+}
+
+.plan-price {
+  font-size: 48px;
+  font-weight: 700;
+  font-family: Rajdhani;
+}
+
+.plan-duration {
+  color: #ffffff;
+  font-size: 18px;
+  /* margin-bottom: 15px; */
+  font-weight: 700;
+  font-family: Rajdhani;
+}
+
+.dividers {
+  height: 1px;
+  background-color: #222;
+  margin: 33px 0 50px 0;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Rubik;
+  color: #948f8f;
+}
+
+.check-icons {
+  color: #ff0050; /* Red/Pink color from screenshot */
+  font-size: 1rem;
+}
+
+.cta-button {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button span {
+  transition: transform 0.3s ease;
+}
+
+/* Icon */
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.cta-button:hover .arrow-icon {
+  transform: translateX(-95px); /* move to left */
+}
+
+.cta-button:hover span {
+  transform: translateX(10px);
+}
+
+/* Featured Button Style */
+.pricing-card.featured .cta-button {
+  background-color: #ff0050;
+  border: none;
+}
+
+.cta-button:hover {
+  background-color: #ff0050;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+.arrow-icon {
+  font-size: 0.9rem;
+}
+
+
+
+/* Directional Hover Effect */
+.directional-effect {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.directional-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* Direction-based borders */
+.directional-effect.hover-left::before {
+  border-left-color: #ff0050;
+}
+
+.directional-effect.hover-right::before {
+  border-right-color: #ff0050;
+}
+
+.directional-effect.hover-top::before {
+  border-top-color: #ff0050;
+}
+
+.directional-effect.hover-bottom::before {
+  border-bottom-color: #ff0050;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .pricing-grid {
+    max-width: 940px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 530px;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+}

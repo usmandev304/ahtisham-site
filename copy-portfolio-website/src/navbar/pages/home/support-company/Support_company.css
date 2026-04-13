@@ -1,0 +1,100 @@
+.support-company-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.support-company-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  width: 100%;
+  max-width: 1280px;
+  /* Top and left borders for the outer container */
+  border-top: 1px solid #1f1f1f;
+  border-left: 1px solid #1f1f1f;
+  cursor: pointer;
+  margin-top: 121px;
+}
+
+.support-company-cell {
+  height: 160px; /* Adjust based on your design preference */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Right and bottom borders for every cell creates the grid effect */
+  border-right: 1px solid #1f1f1f;
+  border-bottom: 1px solid #1f1f1f;
+  padding: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.support-company-cell:hover {
+  background-color: #050505; /* Very subtle hover feedback */
+}
+
+.support-company-logo {
+  max-width: 180px; /* Controls the size of the logos */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  /* If your logos are black, this makes them white/grey */
+  filter: brightness(0) invert(0.8); 
+  opacity: 0.8;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Responsive: 2 columns on tablets/mobile */
+@media (max-width: 1200px) {
+  .support-company-grid {
+    max-width: 937px;
+    margin-bottom: 10px;
+  }
+
+  .support-company-logo {
+    max-width: 125px;
+  }
+
+  .support-company-cell {
+    height: 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .support-company-grid {
+   max-width: 700px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .support-company-cell {
+    height: 150px;
+  }
+
+  .support-company-logo {
+    max-width: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  .support-company-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 505px;
+    margin-top: 0;
+  }
+
+  .support-company-cell {
+    height: 92px;
+  }
+}
+
+/* Responsive: 1 column on very small screens (optional) */
+@media (max-width: 575px) {
+  .support-company-grid {
+    grid-template-columns: 1fr;
+    width: 90%; /* Centers the grid with some breathing room on the sides */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+}

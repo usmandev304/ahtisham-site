@@ -1,0 +1,27 @@
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo-link {
+    display: block;
+}
+
+.logo-img {
+    height: 32px; /* default (similar to h-8) */
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* Responsive sizes */
+@media (max-width: 640px) {
+    .logo-img {
+        height: 28px; /* sm:h-7 */
+    }
+}
+
+@media (min-width: 768px) {
+    .logo-img {
+        height: 21px; /* md:h-5 */
+    }
+}

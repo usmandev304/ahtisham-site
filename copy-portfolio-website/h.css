@@ -1,0 +1,347 @@
+.hero-bg-image {
+    background-image: url('../../../../assets/banner-background-one.jpg');
+    background-size: contain;
+    background-position: 50%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+
+.hero-grids {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1434px;
+    margin: 0 auto 300px auto;
+    height: 100vh;
+    align-items: center;
+}
+
+.hero-titles {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.hero-left-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 100px;
+    padding-left: 80px;
+}
+
+.hero-subtitle-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.hero-subtitle {
+    font-size: 54px;
+    font-weight: bold;
+}
+
+.hero-description {
+    font-size: 17px;
+    font-family: sans-serif;
+    color: #9f9f9f;
+    width: 580px;
+    margin-top: 12px;
+}
+
+.hero-button-wrapper {
+    margin-top: 18px;
+}
+
+.profile {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 12px;
+    border: none;
+    border-radius: 30px;
+    background-color: #FF014F;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile svg {
+    position: relative;
+    right: 0;
+    transition: transform 0.4s ease;
+}
+
+.profile:hover svg {
+    transform: translateX(-130px);
+    /* left move */
+}
+
+.profile:hover span {
+    transform: translateX(10px);
+}
+
+
+.hero-right-content {
+    justify-self: end;
+    text-align: end;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+    transform: translateY(20px);
+    margin-top: 103px;
+    /* margin-left: 80px; */
+}
+
+
+
+.hero-float-text,
+.hero-float-text-bottom {
+    position: absolute;
+    left: 78%;
+    transform: translateX(-50%);
+    font-size: 86px;
+    font-weight: 800;
+    font-family: 'Rajdhani', sans-serif;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.hero-float-text {
+    top: 37%;
+    z-index: 1;
+    /* Below image */
+    color: #ffffff;
+    animation: slideFadeInTop 2.5s infinite alternate ease-in-out;
+}
+
+.hero-float-text-bottom {
+    top: 98%;
+    z-index: 3;
+    /* Above image */
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+    animation: slideFadeInBottom 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes slideFadeInTop {
+    0% {
+        transform: translateX(-50%) translateY(15px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes slideFadeInBottom {
+    0% {
+        transform: translateX(-50%) translateY(-15px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-grids {
+        max-width: 1105px;
+        grid-template-columns: 1.1fr 1fr;
+        margin: auto;
+        /* margin-bottom: 190`px; */
+    }
+
+    .hero-bg-image {
+        background-image: url('../../../../assets/banner-background-one.jpg');
+        background-size: calc(100% + 390px);
+        /* background-position: center; */
+        height: 100vh;
+        /* background-repeat: no-repeat; */
+    }
+
+    .hero-image {
+        right: 50px;
+        /* margin-top: 220px; */
+    }
+
+    .hero-description {
+        max-width: 485px;
+    }
+
+    .hero-titles {
+        font-size: 29px;
+    }
+
+    .hero-subtitle {
+        font-size: 66px;
+        max-width: 480px;
+    }
+
+    .hero-float-text,
+    .hero-float-text-bottom {
+        left: 73%;
+    }
+    
+    .hero-float-text {
+        font-size: 68px;
+        top: 48%;
+    }
+
+    .hero-image {
+        width: 370px;
+        margin-right: 109px;
+        margin-top: 125px;
+    }
+
+    .hero-float-text-bottom {
+        font-size: 70px;
+        top: 97%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-bg-image {
+        background-image: url('../../../../assets/banner-background-one.jpg');
+        background-size: calc(100% + 990px);
+        /* background-position: center; */
+        height: 100vh;
+        /* background-repeat: no-repeat; */
+    }
+
+    .hero-left-contents {
+        margin-top: 65px;
+    }
+
+    .hero-titles {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 54px;
+    }
+
+    .hero-image {
+        width: 480px;
+        right: 22px;
+    }
+
+    .hero-float-text {
+        font-size: 70px;
+        top: 45%;
+    }
+
+    .hero-float-text-bottom {
+        font-size: 70px;
+        top: 100%;
+    }
+
+    .hero-left-contents {
+        padding-left: 43px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .hero-grids {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .hero-left-contents {
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .hero-bg-image {
+        background-size: cover;
+        background-position: center;
+        height: auto;
+        min-height: 120vh;
+        /* dynamic height adjust hogi */
+        padding-bottom: 50px;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 480px;
+        /* Ab choti screens par overflow nahi karega, "bahar" nahi nikalega */
+        margin: 120px auto 0 208px;
+        display: block;
+        left: 0;
+    }
+
+    .hero-right-content {
+        order: 1;
+        justify-self: center;
+        width: 100%;
+    }
+
+    .hero-float-text,
+    .hero-float-text-bottom {
+        left: 49%;
+        font-size: 70px;
+        text-align: center;
+    }
+
+    .hero-float-text {
+        top: 45%;
+    }
+
+    .hero-float-text-bottom {
+        top: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        max-width: 337px;
+        margin: 125px auto 0 127px;
+    }
+
+    .hero-float-text,
+    .hero-float-text-bottom {
+        padding-left: 20px;
+    }
+
+    .hero-float-text-bottom {
+        bottom: 0;
+    }
+}
+
+@media (max-width: 574px) {
+    .hero-image {
+        max-width: 290px;
+        margin: 125px auto;
+    }
+
+    .hero-float-text,
+    .hero-float-text-bottom {
+        font-size: 50px;
+    }
+
+    .hero-float-text {
+        top: 33%;
+    }
+
+    .hero-grids {
+        padding: 50px;
+    }
+
+    .hero-bg-image {
+        background-size: calc(100% + 100%);
+        background-position: cover;
+        height: 100vh;
+        background-repeat: no-repeat;
+    }
+}

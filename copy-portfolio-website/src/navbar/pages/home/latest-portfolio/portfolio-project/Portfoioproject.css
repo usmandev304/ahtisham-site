@@ -1,0 +1,214 @@
+/* Container Layout Updated to Grid */
+.portfolio-containers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    max-width: 1270px;
+    margin: 65px auto 18px;
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-wrapper {
+    width: 100%;
+}
+
+.project-card {
+    position: relative;
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 26px;
+    overflow: hidden;
+    transition: border 0.3s ease;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.card-glow {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(159, 18, 57, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+}
+
+.card-label {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-grow: 1;
+}
+
+.project-link:hover .image-container {
+    transform: scale(1.02);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.project-title {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.project-title:hover {
+    color: #FF014F;
+}
+
+.project-title:hover::after {
+    background-color: #FF014F;
+}
+
+.project-title::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-link:hover .project-title::after {
+    width: 100%;
+}
+
+.project-category {
+    color: #8f8a8a;
+    font-size: 1rem;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Action Button */
+.action-button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #2b2929;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    background-color: transparent;
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.4s ease, 
+                transform 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #FF014F !important;
+    border-color: #FF014F;  
+}
+
+.project-link:hover .action-button {
+    background-color: black;
+    color: #fff;
+}
+
+@media (max-width: 1200px) {
+   .portfolio-containers {
+    max-width: 950px;
+    gap: 19px;
+   }   
+
+   .project-card {
+    height: 380px;
+    width: 464px;
+   }
+}
+
+@media (max-width: 992px) {
+    .portfolio-containers {
+        max-width: 700px;
+    }
+
+    .project-card {
+        height: 280px;
+        width: auto;
+    }
+
+    .card-label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-containers {
+        max-width: 520px;
+    }
+
+    .project-card {
+        height: 210px;
+        width: 245px;
+    }
+
+    .portfolio-description {
+        max-width: 400px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .portfolio-containers {
+        display: grid;
+        grid-template-columns: 1fr; /* Sirf 1 column */
+        gap: 30px; /* Thoda gap kam kar dein mobile ke liye */
+        padding: 0 20px; /* Sides se thoda margin taaki chipke nahi */
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .project-card {
+        width: 100% !important; /* Fixed width ko khatam karein */
+        height: auto; /* Height ko content ke hisaab se adjust hone dein */
+        aspect-ratio: 4/3; /* Shape barkarar rakhega */
+    }
+
+    .portfolio-description {
+        max-width: 90%;
+        text-align: center;
+    }
+}
