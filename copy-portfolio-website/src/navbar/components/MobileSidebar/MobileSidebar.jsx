@@ -44,11 +44,10 @@ export default function MobileSidebar({ isOpen, onClose, socialLinks }) {
             <img src={manImage} alt="Developer" />
           </div>
           <h3 className="profile-title">
-            Freelancer delivering exceptional Webflow and Next.js solutions.
+           Full-Stack Developer dedicated to delivering superior and scalable web solutions.
           </h3>
           <p className="profile-description">
-            I am a skilled freelancer specializing in Webflow development, Figma
-            design, and Next.js projects.
+           Expert Full-Stack Developer specializing in high-performance web applications, robust backend systems, and seamless user experiences.
           </p>
 
           <ContactInfo

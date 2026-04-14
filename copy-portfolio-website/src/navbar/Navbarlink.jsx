@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { RiMenu3Fill } from "react-icons/ri";
-import { FaInstagram, FaLinkedinIn, FaFacebookF, FaTwitter } from "react-icons/fa6";
+import {  FaLinkedinIn } from "react-icons/fa6";
+import { IoLogoGithub } from "react-icons/io";
+import { FaWhatsapp } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 import Logo from "./pages/logo/Logo";
 import "./Navbarlink.css";
 
@@ -25,10 +28,10 @@ export default function NavbarLink() {
 
   // Social Links Data
   const socialLinks = [
-    { Icon: FaInstagram, url: "https://instagram.com/yourprofile" },
+    { Icon: IoLogoGithub, url: "https://github.com/hassandev691" },
     { Icon: FaLinkedinIn, url: "https://linkedin.com/in/hassandev691" },
-    { Icon: FaTwitter, url: "https://twitter.com/yourprofile" },
-    { Icon: FaFacebookF, url: "https://facebook.com/yourprofile" },
+    { Icon: FaWhatsapp, url: "https://wa.me/966506470794" },
+   { Icon: IoMdMail, url: "mailto:hassandev691@gmail.com" },
   ];
 
   // Dropdown Menu Items Configuration

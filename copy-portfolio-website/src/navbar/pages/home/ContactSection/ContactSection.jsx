@@ -25,7 +25,7 @@ export default function ContactSection() {
         e.preventDefault();
         setStatus('sending...');
 
-        try {
+        try { 
             const data = {
                 name: formData.name,
                 phone: formData.phone,
@@ -92,7 +92,7 @@ export default function ContactSection() {
                         <span className="contact-subheading">GET IN TOUCH</span>
                         <h2 className="contact-heading">Elevate your brand<br />with Me</h2>
                         <p className="contact-description">
-                          It is an established fact that a reader can become distracted by the layout and design of content. When the structure is unclear or overly complex, it takes attention away from the main message, making it harder for the reader to stay focused and understand the intended information, reducing overall readability and user engagement.
+                     Have a complex project in mind? I’m here to help you build scalable, high-performance web solutions from the ground up. Let's discuss how we can bring your ideas to life. Expert guidance for your next big launch. Transforming your vision into a robust digital reality today.
                         </p>
                     </div>
 
@@ -150,7 +150,7 @@ export default function ContactSection() {
                         {/* Submit Button */}
                         <button type="submit" className="contact-submit-btn" disabled={status === 'sending...'}>
                             <span className="btn-text">
-                                {status === 'sending...' ? 'Sending...' : 'Appointment Now'}
+                                {status === 'sending...' ? 'Sending...' : 'Send Message'}
                             </span>
                             <span><FaArrowRight className="submit-icon-arrow" /></span>
                         </button>

@@ -79,7 +79,7 @@ export default function Project3hero() {
         setSubmitStatus(null);
 
         try {
-            const response = await fetch('http://localhost:5000/api/form', {
+            const response = await fetch('http://localhost:5000/api/form/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

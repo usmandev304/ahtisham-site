@@ -46,28 +46,33 @@ export default function Servicesdetails_hero() {
                 </div>
 
                 <div className="services-hero-content">
-                    <h2 className="content-main-title">Success Architects</h2>
+                    <h2 className="content-main-title">Services Details</h2>
                     <p className="content-text">
-                        Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any websitet in on visitors.Web designing in a powerful way of just not an only profession Web designing in a powerful way of just not an only
+                      Web development is not just about writing code for me; it’s about creating functional and scalable products. I use modern tech stacks (React, Next.js, Node.js) to build applications that are fast, secure, and user-friendly. My goal is always to maintain clean code so that there are no issues with scalability in the future.
                     </p>
 
                     <h3 className="content-sub-title">My Experts Areas where i gained skill</h3>
+                       <h5 className="content-sub-title">Full-Stack Architecture & Logic</h5>
                     <p className="content-text">
-                        Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any websitet in on visitors.Web designing in a powerful way of just not an only profession Web designing in a powerful way of just not an only
+                       Designing a powerful application is more than just a profession; it is a passion for building systems that last. I believe that the true value of a website lies in its ability to handle complex data while remaining lightning-fast for the visitor. From database management with MongoDB to complex state management in React, I ensure every backend route and frontend component works in perfect harmony.
                     </p>
+                     <h5 className="content-sub-title">User-Centric Interface Design</h5>
                     <p className="content-text">
-                        Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra .Aliquam eros justo, posuere lobortis, viverra laoreet augue mattis fermentum ullamcorper viverra laoreet Aliquam eros
+                      A functional application is only successful if it is intuitive. I focus on creating digital spaces that are visually striking and easy to navigate. By implementing clean UI/UX principles, I reduce the learning curve for users, allowing them to interact with complex workflows effortlessly. Every pixel is placed with the goal of making your brand look unique and professional.
                     </p>
 
-                    <h3 className="content-sub-title">My Experts Areas where i gained skill</h3>
+                    <h3 className="content-sub-title">Technical Proficiency & Specialization</h3>
+                     <h5 className="content-sub-title">Performance Optimization & SEO</h5>
                     <p className="content-text">
-                        Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any websitet in on visitors.Web designing in a powerful way of just not an only profession Web designing in a powerful way of just not an only
+                     In today’s market, speed is a critical feature. I specialize in optimizing Core Web Vitals and utilizing Server-Side Rendering (SSR) to ensure your application ranks high on search engines and provides a seamless user experience. I don't just build websites; I build high-performance digital assets.
                     </p>
+                     <h5 className="content-sub-title">Seamless Deployment & DevOps</h5>
                     <p className="content-text">
-                        Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra .Aliquam eros justo, posuere lobortis, viverra laoreet augue mattis fermentum ullamcorper viverra laoreet Aliquam eros
+                        Your project deserves a stable home. I handle the complex architecture of cloud deployment, ensuring your site runs smoothly and scales without effort. By setting up automated CI/CD pipelines, I make sure that updates are delivered safely and your infrastructure remains secure 24/7.
                     </p>
+                     <h5 className="content-sub-title">End-to-End Maintenance</h5>
                     <p className="content-text">
-                        Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra .Aliquam eros justo, posuere lobortis, viverra laoreet augue mattis fermentum ullamcorper viverra laoreet Aliquam eros
+                      Quality development doesn't end at launch. I provide dedicated support and regular performance audits to keep your application "perfect" even as your user base grows. Whether it's custom API development or interactive frontend animations, I handle every project with a detail-oriented, professional approach.
                     </p>
                 </div>
             </div>

@@ -8,14 +8,23 @@ import { GoArrowRight } from "react-icons/go";
 import { FaArrowRight } from 'react-icons/fa';
 
 const coreFeatures = [
-    { item: "JQuery and CSS3 Animation" },
-    { item: "Image Background" },
-    { item: "Remix Icons" }
+    { item: "Custom React & Next.js Implementation" },
+    { item: "Scalable Backend Infrastructure" },
+    { item: "High-End UI/UX Design" }
 ];
 
 export default function Projectdetailshero() {
     const [cardHoverClass, setCardHoverClass] = useState('');
     const [formHoverClass, setFormHoverClass] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+    const [loading, setLoading] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
 
     const handleCardMouseMove = (e) => {
         const rect = e.currentTarget.getBoundingClientRect();
@@ -55,6 +64,55 @@ export default function Projectdetailshero() {
         setFormHoverClass('');
     };
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setSubmitStatus(null);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/form/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    subject: formData.subject,
+                    message: formData.message
+                })
+            });
+
+            if (response.ok) {
+                setSubmitStatus('success');
+                setFormData({
+                    name: '',
+                    phone: '',
+                    email: '',
+                    subject: '',
+                    message: ''
+                });
+                setTimeout(() => setSubmitStatus(null), 3000);
+            } else {
+                setSubmitStatus('error');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setSubmitStatus('error');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div>
             <div className='projectHero'>
@@ -67,11 +125,11 @@ export default function Projectdetailshero() {
                     <div className='project-main-content'>
                         <h1 className='projectdetails-title'>My Portfolio of Innovation</h1>
                         <p className='project-description'>
-                            Looking to build a stunning online portfolio? Noir is the ideal template for designers, artists, photographers, and other creative professionals seeking an elegant, high-impact online presence. Crafted with creative needs in mind, Noir offers advanced features to showcase your work beautifully and engage your audience. This fully responsive, retina-ready template adapts seamlessly to any device, delivering a flawless visual experience every time.
+                           Are you looking to build a high-performance digital presence? This portfolio showcases a collection of custom-built applications designed for businesses that value speed, security, and professional aesthetics. Each project is crafted with a deep understanding of full-stack architecture, ensuring that the backend logic is as robust as the frontend is beautiful. These solutions are fully responsive and optimized for all devices, providing a seamless user experience from desktop to mobile.
                         </p>
                         <br />
                         <p className='project-description'>
-                            Whether you're an established artist or a rising talent, Noir is the all-in-one solution to elevate your portfolio and leave a lasting impression.
+                         Whether you need a complex enterprise dashboard or a high-converting landing page, I provide end-to-end development to elevate your brand and ensure you leave a lasting impression in the digital market.
                         </p>
                         <ul className='feature-list'>
                             {coreFeatures.map((feature, index) => (
@@ -84,7 +142,10 @@ export default function Projectdetailshero() {
 
                         <h2 className='section-subtitle'>Elevate Your Business with IT Solutions</h2>
                         <p className='project-description'>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galltype and scrambled it to make a type specimen book. It has survived not only five centuries tinto electronic typesetting remaining essentially unchanged
+                         Modern businesses require more than just a website; they require strategic IT solutions that drive growth. I specialize in transforming complex workflows into intuitive, automated web applications. By utilizing the latest industry standards—including clean architecture and modular code—I build products that are easy to maintain and scale.
+                        </p>
+                        <p className='project-description'>
+                       From secure API integrations to real-time database management, my focus is on delivering technical excellence. I ensure that every project is production-ready, lightning-fast, and built to solve specific business challenges while maintaining a sleek, modern interface.
                         </p>
                         <img src={img2} alt="" className='img2' />
                         <div className="btns">
@@ -107,22 +168,61 @@ export default function Projectdetailshero() {
                                 className={`appointment-card directional-card ${formHoverClass}`}
                                 onMouseMove={handleFormMouseMove}
                                 onMouseLeave={handleFormMouseLeave}
+                                onSubmit={handleSubmit}
                             >
                                 <div className="input-grid">
-                                    <input type="text" placeholder="Your Name" className="form-input" />
-                                    <input type="number" placeholder="Phone Number" className="form-input" />
-                                    <input type="email" placeholder="Your Email" className="form-input" />
-                                    <input type="text" placeholder="Subject" className="form-input" />
+                                    <input 
+                                        type="text" 
+                                        name="name"
+                                        placeholder="Your Name" 
+                                        className="form-input"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                    <input 
+                                        type="number" 
+                                        name="phone"
+                                        placeholder="Phone Number" 
+                                        className="form-input"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                    <input 
+                                        type="email" 
+                                        name="email"
+                                        placeholder="Your Email" 
+                                        className="form-input"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                    <input 
+                                        type="text" 
+                                        name="subject"
+                                        placeholder="Subject" 
+                                        className="form-input"
+                                        value={formData.subject}
+                                        onChange={handleInputChange}
+                                    />
                                 </div>
 
                                 <textarea
+                                    name="message"
                                     placeholder="Your Message"
                                     className="form-textarea"
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                    required
                                 ></textarea>
 
-                                <button type="submit" className="submit-btn">
-                                    Appointment Now <FaArrowRight className="btn-icon" />
+                                <button type="submit" className="submit-btn" disabled={loading}>
+                                    {loading ? 'Sending...' : 'Appointment Now'} <FaArrowRight className="btn-icon" />
                                 </button>
+
+                                {submitStatus === 'success' && <p className="status-success">Appointment request sent successfully!</p>}
+                                {submitStatus === 'error' && <p className="status-error">Error sending request. Please try again.</p>}
                             </form>
                         </div>
                     </div>

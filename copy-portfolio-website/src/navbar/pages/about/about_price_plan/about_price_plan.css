@@ -5,7 +5,6 @@
   text-align: center;
   margin-top: 110px;
   font-family: 'Inter', sans-serif;
-  /* Use a modern sans-serif font */
 }
 
 .about-price_plan-container {
@@ -14,7 +13,6 @@
 
 .about-price_plan-subtitle {
   color: #e60026;
-  /* Vibrant red */
   font-size: 16px;
   font-weight: 500;
   font-family: Rubik;
@@ -31,7 +29,6 @@
   margin-bottom: 47px;
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 1200px) {
   .about-price_plan-title {
     margin-bottom: 55px;

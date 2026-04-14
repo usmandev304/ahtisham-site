@@ -7,8 +7,8 @@ export default function HomeBlog() {
             <div className="blog-header-container">
                 <span className="blog-subheading">BLOG AND NEWS</span>
                 <h2 className="blog-main-heading">
-                    Elevating Personal Branding the<br />
-                    through Powerful Portfolios
+                   Insights into Full-Stack Development<br />
+                  & Modern Web Trends
                 </h2>
             </div>
         </section>

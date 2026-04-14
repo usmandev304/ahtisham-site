@@ -1,11 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './footer.css';
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
-import { FaInstagram, FaLinkedinIn, FaTwitter, FaFacebookF } from 'react-icons/fa';
+import { FaInstagram, FaLinkedinIn} from 'react-icons/fa';
+import { IoMdMail } from "react-icons/io";
+import { FaWhatsapp } from "react-icons/fa";
+import { IoLogoGithub } from "react-icons/io";
+
 import logofooter from '../assets/logo/white-logo-reeni (1).webp'
 import { Link } from 'react-router-dom';
  
 export default function Footer() {
+    const [newsletterEmail, setNewsletterEmail] = useState('');
+    const [newsletterStatus, setNewsletterStatus] = useState(null);
+
+    const handleNewsletterSubmit = async (e) => {
+        e.preventDefault();
+        setNewsletterStatus('sending...');
+
+        try {
+            const response = await fetch("http://localhost:5000/api/form/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: newsletterEmail,
+                    subject: "Newsletter Subscription",
+                    message: "User subscribed to newsletter"
+                }),
+            });
+
+            if (response.ok) {
+                setNewsletterStatus('success');
+                setNewsletterEmail('');
+                setTimeout(() => setNewsletterStatus(null), 3000);
+            } else {
+                setNewsletterStatus('error');
+                setTimeout(() => setNewsletterStatus(null), 3000);
+            }
+        } catch (error) {
+            console.error("Newsletter subscription error:", error);
+            setNewsletterStatus('error');
+            setTimeout(() => setNewsletterStatus(null), 3000);
+        }
+    };
+
     return (
         <footer className="footer-container">
             <div className="footer-content">
@@ -18,10 +57,24 @@ export default function Footer() {
                         <strong>Get Ready</strong> <span className="light-text">To Create Great</span>
                     </h1>
                     <div className="newsletter-form">
-                        <input type="email" placeholder="Email Address" />
-                        <button type="button" aria-label="Subscribe">
-                            <FiMail />
-                        </button>
+                        <form onSubmit={handleNewsletterSubmit} style={{display: 'flex', gap: '20px'}}>
+                            <input 
+                                type="email" 
+                                placeholder="Email Address"
+                                value={newsletterEmail}
+                                onChange={(e) => setNewsletterEmail(e.target.value)}
+                                required
+                            />
+                            <button 
+                                type="submit" 
+                                aria-label="Subscribe"
+                                disabled={newsletterStatus === 'sending...'}
+                            >
+                                <FiMail />
+                            </button>
+                        </form>
+                        {newsletterStatus === 'success' && <span className="newsletter-success">Subscribed!</span>}
+                        {newsletterStatus === 'error' && <span className="newsletter-error">Error subscribing</span>}
                     </div>
                 </div>
 
@@ -47,7 +100,7 @@ export default function Footer() {
                         </div>
                         <div className="contact-item">
                             <span className="footer-icon-circles"><FiMapPin className='contact-icons' /></span>
-                            <p>Al-Razi Street, KAAC4185</p>
+                            <p>Al-Razi Street, KAAC4185, Tabuk</p>
                         </div>
                         <div className="contact-item">
                             <span className="footer-icon-circles"><FiPhone className='contact-icons' /></span>
@@ -56,17 +109,17 @@ export default function Footer() {
                     </div>
 
                     <div className="social-links">
-                        <a href="#instagram" className="social-btn"><FaInstagram className='footer-ic' /></a>
+                        <a href="https://github.com/hassandev691"  target="_blank" rel="noreferrer" className="social-btn"><IoLogoGithub className='footer-ic' /></a>
                         <a href="https://linkedin.com/in/hassandev691" target="_blank" rel="noreferrer" className="social-btn"><FaLinkedinIn className='footer-ic'/></a>
-                        <a href="#twitter" className="social-btn"><FaTwitter className='footer-ic'/></a>
-                        <a href="#facebook" className="social-btn"><FaFacebookF className='footer-ic'/></a>
+                        <a href="https://wa.me/966506470794" target='_blank' className="social-btn"><FaWhatsapp className='footer-ic'/></a>
+                        <a href="mailto:hassandev691@gmail.com" target='_blank' className="social-btn"><IoMdMail className='footer-ic'/></a>
                     </div>
                 </div>
             </div>
 
             {/* Copyright & Legal Bar */}
             <div className="footer-bottom">
-                <p className='footer-bottom-p'>&copy; <span className='footer-bottom-span'>Inversweb 2025 </span>| All Rights Reserved</p>
+                <p className='footer-bottom-p'>&copy; <span className='footer-bottom-span'>Hassan Farqooi 2026 </span>| All Rights Reserved</p>
                 <div className="legal-links">
                     <Link to="/about" className='footer-legal-links'>Terms & Condition</Link>
                     <Link to="/about" className='footer-legal-links'>Privacy Policy</Link>

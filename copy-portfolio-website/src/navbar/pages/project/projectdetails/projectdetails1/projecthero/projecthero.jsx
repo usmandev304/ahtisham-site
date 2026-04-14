@@ -78,7 +78,7 @@ export default function Projecthero() {
         setSubmitStatus(null);
 
         try {
-            const response = await fetch('http://localhost:5000/api/form', {
+            const response = await fetch('http://localhost:5000/api/form/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -168,35 +168,35 @@ export default function Projecthero() {
                                 onSubmit={handleSubmit}
                             >
                                 <div className="input-grid">
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         name="name"
-                                        placeholder="Your Name" 
+                                        placeholder="Your Name"
                                         className="form-input"
                                         value={formData.name}
                                         onChange={handleInputChange}
                                     />
-                                    <input 
-                                        type="number" 
+                                    <input
+                                        type="number"
                                         name="phone"
-                                        placeholder="Phone Number" 
+                                        placeholder="Phone Number"
                                         className="form-input"
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                     />
-                                    <input 
-                                        type="email" 
+                                    <input
+                                        type="email"
                                         name="email"
-                                        placeholder="Your Email" 
+                                        placeholder="Your Email"
                                         className="form-input"
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         required
                                     />
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         name="subject"
-                                        placeholder="Subject" 
+                                        placeholder="Subject"
                                         className="form-input"
                                         value={formData.subject}
                                         onChange={handleInputChange}
@@ -211,8 +211,8 @@ export default function Projecthero() {
                                     onChange={handleInputChange}
                                 ></textarea>
 
-                                {submitStatus === 'success' && <p style={{color: 'green'}}>Form submitted successfully!</p>}
-                                {submitStatus === 'error' && <p style={{color: 'red'}}>Error sending message. Please try again.</p>}
+                                {submitStatus === 'success' && <p style={{ color: 'green' }}>Form submitted successfully!</p>}
+                                {submitStatus === 'error' && <p style={{ color: 'red' }}>Error sending message. Please try again.</p>}
 
                                 <button type="submit" className="submit-btn" disabled={loading}>
                                     {loading ? 'Sending...' : 'Appointment Now'} <FaArrowRight className="btn-icon" />

@@ -7,16 +7,16 @@ import reviewimg from '../../../../assets/testimonial-icon.svg';
 const reviewsData = [
   {
     id: 1,
-    text: "Working With Themespark Was An Absolute Pleasure! They Understood My Vision Immediately And Brought It To Life Even Better Than I'd Imagined.",
-    name: "Cameron Williamson",
-    role: "Ui/Ux Designer",
+    text: "Working with Hassan was an absolute pleasure! He understood my technical requirements immediately and delivered a high-performance solution that exceeded my expectations.",
+    name: "Alex Johnson",
+    role: "CEO, Tech Startup",
     image: img1,
   },
   {
     id: 2,
-    text: "ThemesPark Is Incredibly Talented And Detail-Oriented. They Took The Time To Understand My Brand And Created Something Truly Unique",
-    name: "Cameron Williamson",
-    role: "Ui/Ux Designer",
+    text: "Hassan is incredibly talented and detail-oriented. He didn't just build a website; he built a scalable system that truly reflects my brand's identity. Highly recommended for any complex web project!",
+    name: "Sarah Khan",
+    role: "Product Manager",
     image: img2,
   },
 ];

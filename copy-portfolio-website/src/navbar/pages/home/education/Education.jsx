@@ -9,15 +9,15 @@ export default function Education() {
                 <p className="education-eyebrow">
                     Education & Experience
                 </p>
-                
+
                 {/* Main heading */}
                 <h2 className="education-heading">
-                    Empowering Creativity through
+                    Merging Technical Expertise with Creative Solutions
                 </h2>
-                
+
                 {/* Description paragraph */}
                 <p className="education-description">
-                    Business consulting consultants provide expert advice and guida businesses to help them improve their performance, efficiency, and organizational
+                  I provide end-to-end development services designed to scale businesses. By combining robust backend architecture with high-performance frontend solutions, I turn complex requirements into seamless digital products.
                 </p>
             </div>
             <Educationdetails />

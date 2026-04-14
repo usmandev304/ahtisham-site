@@ -1,25 +1,36 @@
 import { useState } from 'react';
 import { Search, ArrowRight, User, Tag, MessageSquare, Calendar } from 'lucide-react'
-import { FaInstagram, FaLinkedinIn, FaTwitter, FaFacebookF, FaArrowRight } from 'react-icons/fa';;
-import { FaRegFolderOpen } from "react-icons/fa6";
+import { FaLinkedinIn, FaArrowRight, FaInstagram, FaWhatsapp, FaGithub, FaTwitter, FaFacebookF } from 'react-icons/fa';
+import { FaRegFolderOpen, FaW } from "react-icons/fa6";
 import './homeblogdetails_hero.css';
-import img from '../.././../../../../assets/blog-img-1.webp'
-import reactImg1 from '../../../../../../assets/single-post-card-img-1.webp'
-import reactImg2 from '../../../../../../assets/single-post-card-img-2.webp'
-import reactImg3 from '../../../../../../assets/single-post-card-img-3.webp'
-import reactImg4 from '../../../../../../assets/blog-details-swiper-img.png'
-import reactImg5 from '../../../../../../assets/about-me-user-img.webp'
-import comment1 from '../../../../../../assets/about-me-user-img.webp'
-import comment2 from '../../../../../../assets/comments-img-2.webp'
 
-
-export default function Homeblogdetails_hero() {
-       const [blogFormHoverClass, setBlogFormHoverClass] = useState('');
-       const [searchWidgetHoverClass, setSearchWidgetHoverClass] = useState('');
-       const [categoryWidgetHoverClass, setCategoryWidgetHoverClass] = useState('');
-       const [recentPostWidgetHoverClass, setRecentPostWidgetHoverClass] = useState('');
-       const [aboutMeCardHoverClass, setAboutMeCardHoverClass] = useState('');
-       const [tagsCardHoverClass, setTagsCardHoverClass] = useState('');
+export default function Homeblogdetails_hero({ 
+    img, 
+    reactImg1, 
+    reactImg2, 
+    reactImg3, 
+    reactImg4, 
+    reactImg5, 
+    comment1, 
+    comment2,
+    tags,
+    commentsData,
+    profileName,
+    profileJobTitle,
+    bioText
+}) {
+    const [blogFormHoverClass, setBlogFormHoverClass] = useState('');
+    const [blogFormData, setBlogFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [blogFormStatus, setBlogFormStatus] = useState(null);
+    const [searchWidgetHoverClass, setSearchWidgetHoverClass] = useState('');
+    const [categoryWidgetHoverClass, setCategoryWidgetHoverClass] = useState('');
+    const [recentPostWidgetHoverClass, setRecentPostWidgetHoverClass] = useState('');
+    const [aboutMeCardHoverClass, setAboutMeCardHoverClass] = useState('');
+    const [tagsCardHoverClass, setTagsCardHoverClass] = useState('');
 
     // Generic handler for card mouse move
     const handleCardMouseMove = (e, setHoverClass) => {
@@ -60,41 +71,50 @@ export default function Homeblogdetails_hero() {
         setBlogFormHoverClass('');
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted');
+    const handleBlogFormInputChange = (e) => {
+        const { name, value } = e.target;
+        setBlogFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
     };
-    const tags = [
-        'All Project', 'Resume', 'Graphics', 'Web Design', 'CV',
-        'Starts', 'Creative Portfolio', 'Portfolio', 'CV Card', 'Start shape'
-    ];
 
-    const commentsData = [
-        {
-            id: 1,
-            name: "Stanio lainto",
-            date: "September 16, 2023",
-            avatar: comment1,
-            text: "Ished fact that a reader will be distrol acted bioii the.ished fact that a reader will be distrol acted laoreet Aliquam fact that a reader will be distrol acted Aliquam eros justo.",
-            isReply: false,
-        },
-        {
-            id: 2,
-            name: "Court Henry",
-            date: "September 16, 2023",
-            avatar: comment2,
-            text: "Ished fact that a reader will be distrol acted bioii the.ished fact that a reader will be distrol acted laoreet.",
-            isReply: true,
-        },
-        {
-            id: 3,
-            name: "Court Henry",
-            date: "September 16, 2023",
-            avatar: comment2,
-            text: "Ished fact that a reader will be distrol acted bioii the.ished fact that a reader will be distrol acted laoreet Aliquam fact that a reader will be distrol acted Aliquam eros justo.",
-            isReply: false,
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setBlogFormStatus('sending...');
+
+        try {
+            const response = await fetch("http://localhost:5000/api/form/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: blogFormData.name,
+                    email: blogFormData.email,
+                    subject: "Blog Comment",
+                    message: blogFormData.message
+                }),
+            });
+
+            if (response.ok) {
+                setBlogFormStatus('success');
+                setBlogFormData({
+                    name: '',
+                    email: '',
+                    message: ''
+                });
+                setTimeout(() => setBlogFormStatus(null), 3000);
+            } else {
+                setBlogFormStatus('error');
+                setTimeout(() => setBlogFormStatus(null), 3000);
+            }
+        } catch (error) {
+            console.error("Blog form submission error:", error);
+            setBlogFormStatus('error');
+            setTimeout(() => setBlogFormStatus(null), 3000);
         }
-    ];
+    };
 
     const CommentItem = ({ comment }) => {
         return (
@@ -170,15 +190,14 @@ export default function Homeblogdetails_hero() {
 
                     {/* Title and Description */}
                     <h1 className="blog-title">
-                        Inspiring the World, One Project at a Time for the man
+                        Why Next.js is the Future of Full-Stack Web Development
                     </h1>
                     <p className="blog-description">
-                        Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra .Aliquam eros justo, posuere
-                        lobortis, viverra laoreet augue mattis fermentum ullamcorper viverra laoreet Aliquam.
+                        Next.js has revolutionized how we think about full-stack development. By combining the power of React with seamless Server-Side Rendering (SSR) and Static Site Generation (SSG), it offers unparalleled speed and SEO benefits right out of the box. With its intuitive file-based routing and API routes, Next.js simplifies backend integration, allowing developers to build robust applications without the overhead of complex configurations. Whether you're creating a dynamic e-commerce site or a content-rich blog, Next.js provides the tools and flexibility to bring your vision to life while ensuring optimal performance and scalability.
                     </p>
                     <br />
                     <p className="blog-description">
-                        Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra .Aliquam eros justoposuere lobortis non, viverra laoreet augue mattis fermentum ullamcorper viverra laore Aliquam eros justo posuere desig loborti viverra laoreet matti ullamcorper posuere viverra
+                        For developers, the built-in API routes and middleware mean we can handle backend logic and frontend interactivity within a single unified framework. This streamlining significantly reduces development time while ensuring that the final product is highly scalable and production-ready
                     </p>
                 </div>
 
@@ -186,7 +205,7 @@ export default function Homeblogdetails_hero() {
                 <div className="blog-sidebar">
 
                     {/* Search Widget with mouse effect */}
-                    <div 
+                    <div
                         className={`blog-widget directional-cards ${searchWidgetHoverClass}`}
                         onMouseMove={(e) => handleCardMouseMove(e, setSearchWidgetHoverClass)}
                         onMouseLeave={() => handleCardMouseLeave(setSearchWidgetHoverClass)}
@@ -204,7 +223,7 @@ export default function Homeblogdetails_hero() {
                     </div>
 
                     {/* Category Widget with mouse effect */}
-                    <div 
+                    <div
                         className={`blog-widget directional-card ${categoryWidgetHoverClass}`}
                         onMouseMove={(e) => handleCardMouseMove(e, setCategoryWidgetHoverClass)}
                         onMouseLeave={() => handleCardMouseLeave(setCategoryWidgetHoverClass)}
@@ -214,10 +233,10 @@ export default function Homeblogdetails_hero() {
                         </h3>
                         <ul className="blog-category-list">
                             {[
-                                { name: 'Business Solution', count: 6 },
-                                { name: 'Web Development Wizardry', count: 3 },
-                                { name: 'Content Creation and Strategy', count: 4 },
-                                { name: 'UI/UX Design Innovation', count: 6 }
+                                { name: 'Enterprise Solutions', count: 6 },
+                                { name: 'Full-Stack Insights', count: 3 },
+                                { name: 'Performance Optimization', count: 4 },
+                                { name: 'User-Centric Design', count: 6 }
                             ].map((cat, index) => (
                                 <li key={index} className="blog-category-item">
                                     <span className="blog-category-name">
@@ -231,7 +250,7 @@ export default function Homeblogdetails_hero() {
                     </div>
 
                     {/* Recent Post Widget with mouse effect */}
-                    <div 
+                    <div
                         className={`blog-widget directional-cards ${recentPostWidgetHoverClass}`}
                         onMouseMove={(e) => handleCardMouseMove(e, setRecentPostWidgetHoverClass)}
                         onMouseLeave={() => handleCardMouseLeave(setRecentPostWidgetHoverClass)}
@@ -241,9 +260,9 @@ export default function Homeblogdetails_hero() {
                         </h3>
                         <div className="blog-recent-posts">
                             {[
-                                { title: 'Sustainable Solutions: Designing for Tomorrow', img: reactImg1 },
-                                { title: 'Technological Innovations: Shaping the Future:', img: reactImg2 },
-                                { title: 'Adventure Awaits Exploring the Great Outdoors', img: reactImg3 }
+                                { title: 'Scalable Database Design for High-Traffic Apps', img: reactImg1 },
+                                { title: 'Why TypeScript is Essential for Modern Web Dev:', img: reactImg2 },
+                                { title: 'Optimizing Core Web Vitals for Better SEO', img: reactImg3 }
                             ].map((post, index) => (
                                 <div key={index} className="blog-recent-post">
                                     <div className="blog-recent-post-image">
@@ -272,9 +291,7 @@ export default function Homeblogdetails_hero() {
                     {/* Top Testimonial Snippet */}
                     <div className="testimonial-card">
                         <p>
-                            Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra
-                            .Aliquam eros justo, posuere lobortis, viverra laoreet augue mattis fermentum
-                            ullamcorper viverra laoreet.
+                            Next.js isn't just another framework; it's a strategic choice for businesses that want to provide a lightning-fast user experience without compromising on complex functionality.
                         </p>
                         <div className="author-name">Mark wood</div>
                         {/* Faint background '99' watermark could be added here via CSS */}
@@ -282,18 +299,22 @@ export default function Homeblogdetails_hero() {
 
                     {/* Showcase Section */}
                     <div className="showcase-section">
-                        <h1 className="showcase-title">Showcase your talent with our portfolio</h1>
+                        <h1 className="showcase-title">"Building Scalable Solutions with a Modern Tech Stack</h1>
                         <p className="showcase-subtitle">
-                            Aliquam eros justo, posuere loborti viverra laoreet matti ullamcorper posuere viverra
-                            .Aliquam eros justo, posuere lobortis, viverra laoreet augue mattis fermentum
-                            ullamcorper viverra laoreet Aliquam eros
+                            My main focus is always on clean code and scalable architecture. By using modern frameworks like Next.js and React, I build applications that are not only visually appealing but also perform efficiently and fast.
                         </p>
 
                         <div className="showcase-content">
                             <div className="showcase-text">
-                                <p className='showcase-subtitle'>Ished fact that a reader will be distrol acted bioii the.ished fact th reader will besi distrol ac laoreet Aliquam fact that a reader will be distrol acted Aliquam posuere loborti viverra laoreet</p>
-                                <p className='showcase-subtitle'>Aliquam eros justo, posuere loborti viverra laoreet matt design the ullamcorper posuere viverra .Aliquam eros justo posuere inni lobortis non, viverra laoreet augue mattis</p>
-                                <p className='showcase-subtitle'>Aliquam eros justo, posuere loborti viverra laoreet matti design an the ullamcorper posuere viverra .Aliquam eros</p>
+                                <p className='showcase-subtitle'>
+                                    From backend to frontend, I provide end-to-end development. This includes API design, database management (MongoDB/SQL), and a seamless user experience to help your business grow in the digital world.
+                                </p>
+                                <p className='showcase-subtitle'>
+                                    My goal is not just to write code, but to build products that are easy for users and profitable for businesses. By following the latest industry standards, I develop secure and fast web applications.
+                                </p>
+                                <p className='showcase-subtitle'>
+                                    Whether it’s custom API development or interactive frontend animations, I handle every project with a detail-oriented approach. Let’s collaborate to build something that stands out in the digital market.
+                                </p>
                             </div>
                             <div className="showcase-image-wrapper">
                                 <img
@@ -309,15 +330,20 @@ export default function Homeblogdetails_hero() {
                     <div className="keyword-footer">
                         <div className="keywords-list">
                             <span className="keyword-label">Keyword:</span>
-                            <span className="keyword-item">Resume</span>
-                            <span className="keyword-item">Graphics</span>
-                            <span className="keyword-item">Web Design</span>
+                            <span className="keyword-item">Next.js Expert</span>
+                            <span className="keyword-item">Full-Stack Developer</span>
+                            <span className="keyword-item">API Integration</span>
                         </div>
                         <div className="social-icons">
-                            <button className="icon-btn"><FaInstagram /></button>
-                            <button className="icon-btn"><FaLinkedinIn /></button>
-                            <button className="icon-btn"><FaTwitter /></button>
-                            <button className="icon-btn"><FaFacebookF /></button>
+                            <button className="icon-btn">
+                                <a href="https://wa.me/966506470794" target='_blank' rel='noopener noreferrer'><FaWhatsapp /></a>
+                            </button>
+                            <button className="icon-btn">
+                                <a href="https://linkedin.com/in/hassandev691" target='_blank' rel='noopener noreferrer'><FaLinkedinIn /></a>
+                            </button>
+                            <button className="icon-btn">
+                                <a href="https://github.com/hassandev691" target='_blank' rel='noopener noreferrer'><FaGithub /></a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -326,7 +352,7 @@ export default function Homeblogdetails_hero() {
                 <div className="sidebar-column">
 
                     {/* About Me Card with mouse effect */}
-                    <div 
+                    <div
                         className={`sidebar-cards directional-cards ${aboutMeCardHoverClass}`}
                         onMouseMove={(e) => handleCardMouseMove(e, setAboutMeCardHoverClass)}
                         onMouseLeave={() => handleCardMouseLeave(setAboutMeCardHoverClass)}
@@ -339,24 +365,28 @@ export default function Homeblogdetails_hero() {
                                 className="profile-pic"
                             />
                             <div className="profile-info">
-                                <h3>Fatima Afrafy</h3>
-                                <p className="job-title">UI/UX Designer</p>
+                                <h3>{profileName}</h3>
+                                <p className="job-title">{profileJobTitle}</p>
                                 <div className="social-icons small-icons">
-                                    <button className="icon-btn"><FaInstagram className='ico' /></button>
-                                    <button className="icon-btn"><FaLinkedinIn className='ico' /></button>
-                                    <button className="icon-btn"><FaTwitter className='ico' /></button>
-                                    <button className="icon-btn"><FaFacebookF className='ico' /></button>
+                                    <button className="icon-btn">
+                                        <a href="https://wa.me/966506470794" target='_blank' rel='noopener noreferrer'><FaWhatsapp className='ico'/></a>
+                                    </button>
+                                    <button className="icon-btn">
+                                        <a href="https://linkedin.com/in/hassandev691" target='_blank' rel='noopener noreferrer'><FaLinkedinIn className='ico' /></a>
+                                    </button>
+                                    <button className="icon-btn">
+                                        <a href="https://github.com/hassandev691" target='_blank' rel='noopener noreferrer'><FaGithub className='ico'/></a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <p className="bio-text">
-                            Aliquam eros justo, posuere loborti viverra ullamcorper posuere viverra .Aliquam
-                            eros justo, posuere justo, posuere.
+                            {bioText}
                         </p>
                     </div>
 
                     {/* Tags Card with mouse effect */}
-                    <div 
+                    <div
                         className={`sidebar-cards directional-cards ${tagsCardHoverClass}`}
                         onMouseMove={(e) => handleCardMouseMove(e, setTagsCardHoverClass)}
                         onMouseLeave={() => handleCardMouseLeave(setTagsCardHoverClass)}
@@ -381,56 +411,68 @@ export default function Homeblogdetails_hero() {
                         ))}
                     </div>
                 </div>
-                 <div className="blog-form-container">
-            <div className="form-container"> {/* Outer dark background */}
-            <form
-                className={`blog-appointment-card directional-cards ${blogFormHoverClass}`}
-                onMouseMove={handleBlogFormMouseMove}
-                onMouseLeave={handleBlogFormMouseLeave}
-                onSubmit={handleSubmit}
-            >
-                <h2 className="form-title">Leave A Comment</h2>
-                <p className="form-subtitle">
-                    By using form u agree with the message sorage, you can contact us directly now
-                </p>
+                <div className="blog-form-container">
+                    <div className="form-container"> {/* Outer dark background */}
+                        <form
+                            className={`blog-appointment-card directional-cards ${blogFormHoverClass}`}
+                            onMouseMove={handleBlogFormMouseMove}
+                            onMouseLeave={handleBlogFormMouseLeave}
+                            onSubmit={handleSubmit}
+                        >
+                            <h2 className="form-title">Leave A Comment</h2>
+                            <p className="form-subtitle">
+                                By using form u agree with the message sorage, you can contact us directly now
+                            </p>
 
-                <div className="input-group">
-                    <label>Your Name</label>
-                    <input 
-                        type="text" 
-                        placeholder="Name" 
-                        className="blog-form-input" 
-                        required
-                    />
+                            <div className="input-group">
+                                <label>Your Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Name"
+                                    className="blog-form-input"
+                                    value={blogFormData.name}
+                                    onChange={handleBlogFormInputChange}
+                                    required
+                                />
+                            </div>
+
+                            <div className="input-group">
+                                <label>Your Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    className="blog-form-input"
+                                    value={blogFormData.email}
+                                    onChange={handleBlogFormInputChange}
+                                    required
+                                />
+                            </div>
+
+                            <div className="input-group">
+                                <label>Message</label>
+                                <textarea
+                                    name="message"
+                                    placeholder="Message here.."
+                                    className="blog-form-textarea"
+                                    rows="5"
+                                    value={blogFormData.message}
+                                    onChange={handleBlogFormInputChange}
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" className="blog-submit-btn" disabled={blogFormStatus === 'sending...'}>
+                                {blogFormStatus === 'sending...' ? 'Sending...' : 'Submit Now'} <FaArrowRight className="btn-icon" />
+                            </button>
+
+                            {blogFormStatus === 'success' && <p className="status-success">Comment submitted successfully!</p>}
+                            {blogFormStatus === 'error' && <p className="status-error">Error submitting comment. Please try again.</p>}
+                        </form>
+                    </div>
                 </div>
-
-                <div className="input-group">
-                    <label>Your Email</label>
-                    <input 
-                        type="email" 
-                        placeholder="Email" 
-                        className="blog-form-input" 
-                        required
-                    />
-                </div>
-
-                <div className="input-group">
-                    <label>Message</label>
-                    <textarea
-                        placeholder="Message here.."
-                        className="blog-form-textarea"
-                        rows="5"
-                        required
-                    ></textarea>
-                </div>
-
-                <button type="submit" className="blog-submit-btn">
-                    Submit Now <FaArrowRight className="btn-icon" />
-                </button>
-            </form>
-        </div>
-        </div>
             </div>
         </section>
     );
-}``
+} ``

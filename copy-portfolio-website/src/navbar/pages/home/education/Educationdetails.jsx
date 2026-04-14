@@ -12,16 +12,6 @@ const servicesData = [
         title: "BACHELOR'S DEGREE IN COMPUTER SCIENCE",
         year: 'Sep 2018 - Aug 2022',
         description: 'Comprehensive study of computer science fundamentals including algorithms, data structures, software engineering, and web development. Graduated with honors and completed multiple projects demonstrating practical application of theoretical concepts.'
-    },
-    {
-        title: "BACHELOR'S DEGREE IN COMPUTER SCIENCE",
-        year: 'Sep 2018 - Aug 2022',
-        description: 'Comprehensive study of computer science fundamentals including algorithms, data structures, software engineering, and web development. Graduated with honors and completed multiple projects demonstrating practical application of theoretical concepts.'
-    },
-    {
-        title: 'INTERMEDIATE IN (ICS)',
-        year: 'Sep 2015 - Aug 2017',
-        description: 'Focused study of computer science basics including programming, logic building, and web fundamentals. Completed several academic projects and gained strong analytical and problem-solving skills that built a solid foundation for higher studies in computer science.'
     }
 ];
 

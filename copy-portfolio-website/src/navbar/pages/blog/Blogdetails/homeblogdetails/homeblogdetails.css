@@ -16,7 +16,6 @@
     overflow: hidden;
 }
 
-/* Dark overlay for text readability */
 .homeblog-header-overlay {
     position: absolute;
     top: 0;

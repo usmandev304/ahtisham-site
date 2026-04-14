@@ -19,9 +19,6 @@
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.mobile-navs {
-  display: none;
-}
 
 .navbar-container {
   display: flex;
@@ -36,7 +33,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding-left: 60px;
+  padding-left: 16px;
 
 }
 
@@ -267,7 +264,7 @@
 
 /* Social icons alignment fix (Optional: agar wo round nahi dikh rahe) */
 .social-icon {
-  width: 40px;
+  width: 42px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -770,12 +767,15 @@
   display: none;
 }
 
-.mobile-navs {
-  display: block;
-}
+
 
 .sidebar-footer {
   margin-top: 0;
+}
+
+
+.mobile-navs {
+  display: none;
 }
 
 @media (max-width: 1200px) {
@@ -798,6 +798,9 @@
   .dropdown-label {
     display: none;
   }
+  .mobile-navs {
+  display: block;
+}
 
   .hamburger-btn {
     font-family: 10px;

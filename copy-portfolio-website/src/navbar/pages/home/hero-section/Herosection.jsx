@@ -34,7 +34,7 @@ export default function herosection() {
               <TypeEffect />
             </h1>
             <p className="home-hero-description">
-             ransforming complex ideas into scalable digital solutions. With a background in Web Design and a deep focus on AI Development, I lead teams to build intelligent, user-centric products that drive real-world impact.
+            I am a Senior Full Stack Developer at heart and, i create features that are best suited for the job at hand.
             </p>
             <div className="home-header-btns">
             <button className="home-hero-btn">

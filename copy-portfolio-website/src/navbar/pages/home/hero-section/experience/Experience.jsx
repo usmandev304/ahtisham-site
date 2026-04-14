@@ -177,7 +177,7 @@ export default function Experience() {
         />
         <p className="experience-label">Years Of Experience</p>
         <p className="experience-description">
-         Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency
+       I provide end-to-end development services designed to scale businesses. By combining robust backend architecture with high-performance frontend solutions, I turn complex requirements into seamless digital products.
         </p>
       </div>
 

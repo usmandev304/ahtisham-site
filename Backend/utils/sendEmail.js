@@ -5,17 +5,17 @@ const sendEmail = async (data) => {
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      pass: process.env.EMAIL_PASS, // Check karein ke .env mein bhi EMAIL_PASS hi ho
     },
   });
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: "New Contact Form Submission",
+    to: process.env.EMAIL_USER, // Aapko hi email aayegi
+    subject: `New Portfolio Message: ${data.subject}`,
     html: `
-      <h2>New Form Submission</h2>
-      <p><strong>Email:</strong> ${data.email}</p>
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Sender Email:</strong> ${data.email}</p>
       <p><strong>Subject:</strong> ${data.subject}</p>
       <p><strong>Message:</strong> ${data.message}</p>
     `,

@@ -12,7 +12,7 @@ const blogData = [
         id: 1,
         author: "Mesbah",
         date: "April 10",
-        title: "Inspiring the World, One Project at a Time for the man",
+        title: "Why Next.js is the Future of Full-Stack Web Development",
         imgSrc: img1,
         link: "/blog/blogdetails/homeblogdetails"
     },
@@ -20,7 +20,7 @@ const blogData = [
         id: 2,
         author: "Mesbah",
         date: "April 10",
-        title: "Let's bring your ideas to life! Contact me, and let's",
+        title: "Mastering Scalable Backend Architecture with Node.js",
         imgSrc: img2,
         link: "/blog/blogdetails/homeblogdetails_2"
     },
@@ -28,7 +28,7 @@ const blogData = [
         id: 3,
         author: "Mesbah",
         date: "April 10",
-        title: "Each one showcases our approach and dedication man",
+        title: "The Importance of UI/UX in Functional Web Applications",
         imgSrc: img3,
         link: "/blog/blogdetails/homeblogdetails_3"
     }

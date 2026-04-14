@@ -7,7 +7,7 @@ export default function ServicesDetails() {
           <section className="about-page-header">
             <div className="about-header-overlay"></div>
             <div className="about-header-content">
-              <h1 className="about-header-title">Success Architects</h1>
+              <h1 className="about-header-title">Services Details</h1>
               <nav className="about-breadcrumb-nav">
                 <a href="/" className="about-breadcrumb-item link">Home</a>
                 <span className="about-breadcrumb-icon">

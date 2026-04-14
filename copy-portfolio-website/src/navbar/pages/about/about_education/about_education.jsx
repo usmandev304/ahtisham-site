@@ -7,20 +7,10 @@ const servicesData = [
         year: 'Sep 2015 - Aug 2017',
         description: 'Focused study of computer science basics including programming, logic building, and web fundamentals. Completed several academic projects and gained strong analytical and problem-solving skills that built a solid foundation for higher studies in computer science.'
     },
-    { 
-        title: 'FULL STACK LEAD ENGINEER',
-        year: 'Jan 2025 - Present',
-        description: 'Overseeing the development of enterprise-grade web applications using Next.js, Laravel, and AWS. Responsible for technical architecture, mentoring engineers, and driving innovation across product development.'
-    },
     {
         title: "'BACHELOR'S DEGREE IN COMPUTER SCIENCE",
         year: 'Sep 2018 - Aug 2022',
         description: 'Comprehensive study of computer science fundamentals including algorithms, data structures, software engineering, and web development. Graduated with honors and completed multiple projects demonstrating practical application of theoretical concepts.'
-    },
-    {
-        title: "SENIOR FULL STACK ENGINEER",
-        year: 'Aug 2023 - Dec 2025',
-        description: 'Led the design and development of multi-tenant platforms. Worked on real-time dashboards, authentication flows, and database optimization, ensuring seamless integration between frontend and backend systems.'
     }
 ];
 

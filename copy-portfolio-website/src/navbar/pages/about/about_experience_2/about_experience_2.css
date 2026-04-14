@@ -114,9 +114,6 @@
   gap: 2.5rem;
 }
 
-.experience_2-item {
-  /* Group styles if needed */
-}
 
 .experience_2-role {
   color: #dc2626;
@@ -157,14 +154,12 @@
   font-family: Rubik;
 }
 
-/* Initially hidden */
 .experience_2-section {
   opacity: 0;
-  transform: translateY(80px); /* bottom se start */
+  transform: translateY(80px);
   transition: all 0.8s ease;
 }
 
-/* Jab visible ho */
 .experience_2-section.show {
   opacity: 1;
   transform: translateY(0);
@@ -197,7 +192,7 @@
     padding-left: 40px;
     width: 100%;
   }
-  
+
   .experience_2-description {
     max-width: 100%;
   }
@@ -219,7 +214,8 @@
     max-width: 100%;
     padding: 0;
   }
-   .experience_2-content-wrapper {
+
+  .experience_2-content-wrapper {
     padding-left: 10px;
     width: 100%;
   }
