@@ -26,6 +26,10 @@
     transition: transform 0.3s ease;
 }
 
+.status-success {
+    text-align: center;
+}
+
 /* --- Left Text Content --- */
 .contact-text-content {
     flex: 1;

@@ -5,16 +5,39 @@ const sendEmail = async (data) => {
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS, // Check karein ke .env mein bhi EMAIL_PASS hi ho
+      pass: process.env.EMAIL_PASS,
     },
   });
 
+  // Determine subject based on message type
+  let emailSubject;
+  switch (data.type) {
+    case "chat":
+      emailSubject = `Chat Message: ${data.subject}`;
+      break;
+    case "subscribe":
+      emailSubject = `New Subscriber: ${data.subject}`;
+      break;
+    case "about":
+      emailSubject = `About Page Inquiry: ${data.subject}`;
+      break;
+    case "project":
+      emailSubject = `Project Inquiry: ${data.subject}`;
+      break;
+    case "contact":
+      emailSubject = `Contact Form: ${data.subject}`;
+      break;
+    default:
+      emailSubject = `New Portfolio Message: ${data.subject}`;
+  }
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER, // Aapko hi email aayegi
-    subject: `New Portfolio Message: ${data.subject}`,
+    to: process.env.EMAIL_USER,
+    subject: emailSubject,
     html: `
-      <h2>New Contact Form Submission</h2>
+      <h2>New Submission</h2>
+      <p><strong>Type:</strong> ${data.type || "general"}</p>
       <p><strong>Sender Email:</strong> ${data.email}</p>
       <p><strong>Subject:</strong> ${data.subject}</p>
       <p><strong>Message:</strong> ${data.message}</p>

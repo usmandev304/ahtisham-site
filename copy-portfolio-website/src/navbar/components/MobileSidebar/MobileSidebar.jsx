@@ -61,7 +61,7 @@ export default function MobileSidebar({ isOpen, onClose, socialLinks }) {
             icon={IoMail}
             label="Mail Us"
             value="hassandev691@gmail.com"
-            href="mailto:hassandev691@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=hassandev691@gmail.com"
             type="email"
           />
           <ContactInfo

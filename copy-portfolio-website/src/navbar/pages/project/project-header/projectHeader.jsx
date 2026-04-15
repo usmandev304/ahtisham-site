@@ -18,9 +18,9 @@ import project16 from '../../../../assets/ormith (1).jpg';
 import project17 from '../../../../assets/4n.png';
 import project18 from '../../../../assets/newyorker.jpeg';
 import project19 from '../../../../assets/legal.jpg';
-// import project20 from '../../../../assets/project20.jpg';
-// import project21 from '../../../../assets/project21.jpg';
-// import project22 from '../../../../assets/project22.jpg';
+import project20 from '../../../../assets/project20.png';
+import project21 from '../../../../assets/project21.png';
+import project22 from '../../../../assets/project22.png';
 import { MdArrowOutward } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import ProjectDetails from './project-details/projectDetails';
@@ -164,21 +164,21 @@ export default function ProjectHeader() {
       id: 20,
       title: "Signin - QEF",
       category: "Development",
-      // imageUrl: project20,
+      imageUrl: project20,
       links: "https://qef-fe.vercel.app/"
     },
     {
       id: 21,
       title: "Samsungnac",
       category: "Development",
-      // imageUrl: project21,
+      imageUrl: project21,
       links: "http://samsungnac.co.za/"
     },
         {
       id: 22,
       title: "Barney's",
       category: "Development",
-      // imageUrl: project22,
+      imageUrl: project22,
       links: "https://barneysbeer.co.uk/"
     }
   ];

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import './ContactSection.css';
 
-export default function ContactSection() {
+export default function ContactSection({ type = 'contact' }) {
     const [contactHoverClass, setContactHoverClass] = useState('');
     const [formData, setFormData] = useState({
         name: '',
@@ -32,6 +32,7 @@ export default function ContactSection() {
                 email: formData.email,
                 subject: formData.subject,
                 message: formData.message,
+                type: type,
             };
 
             const response = await fetch("http://localhost:5000/api/form/submit", {

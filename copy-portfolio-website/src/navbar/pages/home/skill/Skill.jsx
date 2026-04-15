@@ -8,6 +8,9 @@ export default function Skill() {
         { name: 'WEBFLOW', percentage: 75 },
         { name: 'DEPLOYMENTS/DEVOPS', percentage: 85 },
         { name: 'AI MODEL TRAINING', percentage: 90 },
+        { name: 'Frontend Development', percentage: 95 },
+        { name: 'Databases', percentage: 85 },
+        { name: 'Architecture & System Design', percentage: 80 },
     ];
 
     const developmentSkills = [
@@ -15,6 +18,9 @@ export default function Skill() {
         { name: 'AI', percentage: 80 },
         { name: 'JavaScript', percentage: 80 },
         { name: 'PHP', percentage: 90 },
+        { name: 'Backend Development', percentage: 80 },
+        { name: 'CMS & E-Commerce', percentage: 90 },
+        { name: 'Tools & Version Control', percentage: 95 },
     ];
 
     const SkillBar = ({ name, percentage, delay }) => {
@@ -71,7 +77,7 @@ export default function Skill() {
                         >
                             <div className="skill-card">
                                 <h3 className="skill-title">
-                                    Design Skill
+                                    Skills
                                     <img src={customline} alt="" className="skill-title-line" />
                                 </h3>
                                 <div className="skill-list">
@@ -92,7 +98,7 @@ export default function Skill() {
                         >
                             <div className="skill-card">
                                 <h3 className="skill-title">
-                                    <span>Development</span> Skill
+                                    <span></span> Skills
                                     <img src={customline} alt="" className="skill-title-line" />
                                 </h3>
                                 <div className="skill-list">

@@ -506,3 +506,21 @@
         flex-shrink: 0;
     }
 }
+
+.no-results-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    text-align: center;
+    background-color: #161618;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+
+.no-results-message p {
+    font-size: 18px;
+    color: #aaaaaa;
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+}

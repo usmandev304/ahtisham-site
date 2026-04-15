@@ -88,7 +88,8 @@ export default function Projectdetailshero() {
                     email: formData.email,
                     phone: formData.phone,
                     subject: formData.subject,
-                    message: formData.message
+                    message: formData.message,
+                    type: "project"
                 })
             });
 
@@ -218,10 +219,10 @@ export default function Projectdetailshero() {
                                 ></textarea>
 
                                 <button type="submit" className="submit-btn" disabled={loading}>
-                                    {loading ? 'Sending...' : 'Appointment Now'} <FaArrowRight className="btn-icon" />
+                                    {loading ? 'Sending...' : 'Submit Now'} <FaArrowRight className="btn-icon" />
                                 </button>
 
-                                {submitStatus === 'success' && <p className="status-success">Appointment request sent successfully!</p>}
+                                {submitStatus === 'success' && <p className="status-success">Submit request sent successfully!</p>}
                                 {submitStatus === 'error' && <p className="status-error">Error sending request. Please try again.</p>}
                             </form>
                         </div>

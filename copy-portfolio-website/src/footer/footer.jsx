@@ -57,7 +57,7 @@ export default function Footer() {
                         <strong>Get Ready</strong> <span className="light-text">To Create Great</span>
                     </h1>
                     <div className="newsletter-form">
-                        <form onSubmit={handleNewsletterSubmit} style={{display: 'flex', gap: '20px'}}>
+                        <form onSubmit={handleNewsletterSubmit} style={{display: 'flex'}}>
                             <input 
                                 type="email" 
                                 placeholder="Email Address"
@@ -65,6 +65,7 @@ export default function Footer() {
                                 onChange={(e) => setNewsletterEmail(e.target.value)}
                                 required
                             />
+                            <div style={{display: 'flex'}}>
                             <button 
                                 type="submit" 
                                 aria-label="Subscribe"
@@ -72,6 +73,13 @@ export default function Footer() {
                             >
                                 <FiMail />
                             </button>
+                             <button 
+                                type="submit" 
+                                aria-label="Subscribe"
+                                disabled={newsletterStatus === 'sending...'}
+                            > Subscribe 
+                             </button>
+                             </div>
                         </form>
                         {newsletterStatus === 'success' && <span className="newsletter-success">Subscribed!</span>}
                         {newsletterStatus === 'error' && <span className="newsletter-error">Error subscribing</span>}
@@ -112,7 +120,7 @@ export default function Footer() {
                         <a href="https://github.com/hassandev691"  target="_blank" rel="noreferrer" className="social-btn"><IoLogoGithub className='footer-ic' /></a>
                         <a href="https://linkedin.com/in/hassandev691" target="_blank" rel="noreferrer" className="social-btn"><FaLinkedinIn className='footer-ic'/></a>
                         <a href="https://wa.me/966506470794" target='_blank' className="social-btn"><FaWhatsapp className='footer-ic'/></a>
-                        <a href="mailto:hassandev691@gmail.com" target='_blank' className="social-btn"><IoMdMail className='footer-ic'/></a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hassandev691@gmail.com" target='_blank' className="social-btn"><IoMdMail className='footer-ic'/></a>
                     </div>
                 </div>
             </div>

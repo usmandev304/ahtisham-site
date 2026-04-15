@@ -24,7 +24,7 @@ const services = [
   {
     id: 3,
     title: "Full Stack",
-    count: "5+ Years Exp",
+    count: "9+ Years Exp",
     description: "Leading development teams to deliver end-to-end products from initial concept to final cloud deployment.",
     icon: <SiWebmoney />
   }

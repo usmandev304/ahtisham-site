@@ -24,12 +24,27 @@ export default function Homeblogdetails_hero_3({
     const [recentPostWidgetHoverClass, setRecentPostWidgetHoverClass] = useState('');
     const [aboutMeCardHoverClass, setAboutMeCardHoverClass] = useState('');
     const [tagsCardHoverClass, setTagsCardHoverClass] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     const [blogFormData, setBlogFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
     const [blogFormStatus, setBlogFormStatus] = useState(null);
+
+    // Recent posts data
+    const recentPostsData = [
+        { title: 'Sustainable Solutions: Designing for Tomorrow', img: reactImg1 },
+        { title: 'Technological Innovations: Shaping the Future:', img: reactImg2 },
+        { title: 'Adventure Awaits Exploring the Great Outdoors', img: reactImg3 }
+    ];
+
+    // Filter recent posts based on search query
+    const filteredRecentPosts = searchQuery.trim() === '' 
+        ? recentPostsData 
+        : recentPostsData.filter(post =>
+            post.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
 
     // Generic handler for card mouse move
     const handleCardMouseMove = (e, setHoverClass) => {
@@ -76,6 +91,11 @@ export default function Homeblogdetails_hero_3({
             ...prev,
             [name]: value
         }));
+    };
+
+    const handleSearchClick = () => {
+        // Search is already active via onChange, but this allows users to click the button
+        console.log('Searching for:', searchQuery);
     };
 
     const handleSubmit = async (e) => {
@@ -214,8 +234,10 @@ export default function Homeblogdetails_hero_3({
                                 type="text"
                                 placeholder="Type here"
                                 className="blog-search-input"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
                             />
-                            <button className="blog-search-button">
+                            <button className="blog-search-button" onClick={handleSearchClick}>
                                 <Search size={20} />
                             </button>
                         </div>
@@ -258,26 +280,28 @@ export default function Homeblogdetails_hero_3({
                             Recent Post <span className="blog-widget-title-dot"></span>
                         </h3>
                         <div className="blog-recent-posts">
-                            {[
-                                { title: 'Sustainable Solutions: Designing for Tomorrow', img: reactImg1 },
-                                { title: 'Technological Innovations: Shaping the Future:', img: reactImg2 },
-                                { title: 'Adventure Awaits Exploring the Great Outdoors', img: reactImg3 }
-                            ].map((post, index) => (
-                                <div key={index} className="blog-recent-post">
-                                    <div className="blog-recent-post-image">
-                                        <img src={post.img} alt="post" className="blog-recent-post-img" />
-                                    </div>
-                                    <div className="blog-recent-post-content">
-                                        <span className="blog-recent-post-category">
-                                            <FaRegFolderOpen size={12} className="blog-recent-post-icon" /> Category
+                            {filteredRecentPosts.length > 0 ? (
+                                filteredRecentPosts.map((post, index) => (
+                                    <div key={index} className="blog-recent-post">
+                                        <div className="blog-recent-post-image">
+                                            <img src={post.img} alt="post" className="blog-recent-post-img" />
+                                        </div>
+                                        <div className="blog-recent-post-content">
+                                            <span className="blog-recent-post-category">
+                                                <FaRegFolderOpen size={12} className="blog-recent-post-icon" /> Category
 
-                                        </span>
-                                        <h4 className="blog-recent-post-title">
-                                            {post.title}
-                                        </h4>
+                                            </span>
+                                            <h4 className="blog-recent-post-title">
+                                                {post.title}
+                                            </h4>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))
+                            ) : (
+                                <p style={{ color: '#aaa', textAlign: 'center', padding: '20px 0' }}>
+                                    No posts found
+                                </p>
+                            )}
                         </div>
                     </div>
 

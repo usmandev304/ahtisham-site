@@ -396,3 +396,10 @@
 .directional-card:hover::before {
     opacity: 1;
 }
+
+
+@media (max-width: 768px) {
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+}

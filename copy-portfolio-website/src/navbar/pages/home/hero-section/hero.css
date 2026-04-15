@@ -111,19 +111,19 @@
     font-family: Rubik;
     font-weight: 400;
 }
-
+/* 
 .home-hero-btn-span:hover {
     transform: translateX(10px);
-}
+} */
 
 .home-hero-btn .arrow {
     display: inline-block;
     transition: transform 0.3s ease;
 }
-
+/* 
 .home-hero-btn:hover .arrow {
     transform: translateX(-120px);
-}
+} */
 
 .home-hero-image-wrapper {
     position: relative;

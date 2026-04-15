@@ -7,6 +7,13 @@ import "./chat.css";
 export default function Chat() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +24,53 @@ export default function Chat() {
   }, []);
 
   const toggleChat = () => setIsOpen(!isOpen);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/form/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          subject: formData.name || "Chat Message",
+          message: formData.message,
+          type: "chat",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => {
+          setIsOpen(false);
+          setSubmitStatus(null);
+        }, 2000);
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className={`chat-container ${isScrolled ? "scrolled" : ""}`}>
@@ -41,14 +95,48 @@ export default function Chat() {
                 Please fill out the form below to start chatting with me directly.
               </p>
               
-              <form className="chat-contact-form" onSubmit={(e) => e.preventDefault()}>
+              {submitStatus === "success" && (
+                <div className="success-message">Message sent successfully! ✓</div>
+              )}
+              {submitStatus === "error" && (
+                <div className="error-message">Failed to send message. Please try again.</div>
+              )}
+
+              <form className="chat-contact-form" onSubmit={handleSubmit}>
                 <div className="form-inner-container">
-                  <input type="text" placeholder="Your Name" className="form-field" required />
-                  <input type="email" placeholder="Your Email" className="form-field" required />
-                  <textarea placeholder="Your Message" className="form-field form-textarea-chat" required></textarea>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    className="form-field"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    className="form-field"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    className="form-field form-textarea-chat"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  ></textarea>
                   
-                  <button type="submit" className="submit-msg-btn">
-                    Send Message
+                  <button
+                    type="submit"
+                    className="submit-msg-btn"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Sending..." : "Send Message"}
                   </button>
                 </div>
               </form>

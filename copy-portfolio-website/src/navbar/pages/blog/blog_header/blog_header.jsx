@@ -19,6 +19,7 @@ export default function Blog_header() {
     // --- STATE FOR CLICK/HOVER INTERACTION ---
     const [hoveredCardId, setHoveredCardId] = useState(null);
     const [clickedCardId, setClickedCardId] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
 
     // --- SIDEBAR INTERACTION STATES ---
     const [aboutMeCardHoverClass, setAboutMeCardHoverClass] = useState('');
@@ -92,70 +93,97 @@ export default function Blog_header() {
         setClassFn(classes.join(' '));
     };
 
+    // Filter blog posts based on search query
+    const filteredBlogPosts = searchQuery.trim() === '' 
+        ? blogPosts 
+        : blogPosts.filter(post =>
+            post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            post.tag.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+    const handleSearchClick = () => {
+        // Search is already active via onChange, but this allows users to click the button
+        // You can add additional actions here if needed
+        console.log('Searching for:', searchQuery);
+    };
+
     return (
         <div className="blog-layout-container">
             {/* Left Main Content */}
             <motion.div
                 className="blog-posts-column"
                 variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
+                initial="visible"
+                animate="visible"
                 viewport={{ once: true, amount: 0.1 }}
             >
-                {blogPosts.map((post) => {
-                    // Check if card should show hover effect (either mouse is over OR it was clicked)
-                    const isEffectActive = hoveredCardId === post.id || clickedCardId === post.id;
+                {filteredBlogPosts.length > 0 ? (
+                    filteredBlogPosts.map((post) => {
+                        // Check if card should show hover effect (either mouse is over OR it was clicked)
+                        const isEffectActive = hoveredCardId === post.id || clickedCardId === post.id;
 
-                    return (
-                        <motion.div key={post.id} variants={fadeInUp} className="blog-post-card">
-                            <div
-                                className="hover-containers"
-                                onMouseEnter={() => setHoveredCardId(post.id)}
-                                onMouseLeave={() => setHoveredCardId(null)}
-                                onClick={() => setClickedCardId(clickedCardId === post.id ? null : post.id)}
-                            >
-                                <img
-                                    src={post.img}
-                                    alt="Blog Post"
-                                    className={`main-image ${isEffectActive ? 'hovered' : ''}`}
-                                />
-                                <div className={`two-images-group ${isEffectActive ? 'hovered' : ''}`}>
-                                    <img src={post.img} alt="Slide Part" />
+                        return (
+                            <motion.div key={post.id} variants={fadeInUp} className="blog-post-card">
+                                <div
+                                    className="hover-containers"
+                                    onMouseEnter={() => setHoveredCardId(post.id)}
+                                    onMouseLeave={() => setHoveredCardId(null)}
+                                    onClick={() => setClickedCardId(clickedCardId === post.id ? null : post.id)}
+                                >
+                                    <img
+                                        src={post.img}
+                                        alt="Blog Post"
+                                        className={`main-image ${isEffectActive ? 'hovered' : ''}`}
+                                    />
+                                    <div className={`two-images-group ${isEffectActive ? 'hovered' : ''}`}>
+                                        <img src={post.img} alt="Slide Part" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="blog-post-content">
-                                <div className="blog-post-meta">
-                                    <span className="meta-item"><FaTag className="meta-icon" /> {post.tag}</span>
-                                    <span className="meta-item"><FaRegComment className="meta-icon" /> Comments (05)</span>
-                                    <span className="meta-item"><FaRegCalendarAlt className="meta-icon" /> April 2026</span>
+                                <div className="blog-post-content">
+                                    <div className="blog-post-meta">
+                                        <span className="meta-item"><FaTag className="meta-icon" /> {post.tag}</span>
+                                        <span className="meta-item"><FaRegComment className="meta-icon" /> Comments (05)</span>
+                                        <span className="meta-item"><FaRegCalendarAlt className="meta-icon" /> April 2026</span>
+                                    </div>
+                                    <h2 className="blog-post-title">{post.title}</h2>
+                                    <p className="blog-post-excerpt">{post.excerpt}</p>
+                                    <Link to={post.id === 1 ? "/blog/blogdetails/homeblogdetails" : `/blog/blogdetails/homeblogdetails_${post.id}`}>
+                                        <button className="blog-read-more-btn">
+                                            Read More
+                                            <BsArrowRight className="read-more-icon" />
+                                        </button>
+                                    </Link>
                                 </div>
-                                <h2 className="blog-post-title">{post.title}</h2>
-                                <p className="blog-post-excerpt">{post.excerpt}</p>
-                                <Link to={post.id === 1 ? "/blog/blogdetails/homeblogdetails" : `/blog/blogdetails/homeblogdetails_${post.id}`}>
-                                    <button className="blog-read-more-btn">
-                                        Read More
-                                        <BsArrowRight className="read-more-icon" />
-                                    </button>
-                                </Link>
-                            </div>
-                        </motion.div>
-                    );
-                })}
+                            </motion.div>
+                        );
+                    })
+                ) : (
+                    <div className="no-results-message">
+                        <p>No blog posts found matching "{searchQuery}"</p>
+                    </div>
+                )}
             </motion.div>
 
             {/* Right Sidebar */}
             <motion.div
                 className="blog-sidebar-column"
                 variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
+                initial="visible"
+                animate="visible"
                 viewport={{ once: true, amount: 0.1 }}
             >
                 {/* Search Widget */}
                 <motion.div variants={fadeInUp} className="sidebar-widget search-widget-container">
-                    <input type="text" placeholder="Type here" className="sidebar-search-input" />
-                    <button className="sidebar-search-btn"><FaSearch /></button>
+                    <input 
+                        type="text" 
+                        placeholder="Type here" 
+                        className="sidebar-search-input"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <button className="sidebar-search-btn" onClick={handleSearchClick}><FaSearch /></button>
                 </motion.div>
 
                 {/* Category Widget */}
@@ -212,7 +240,7 @@ export default function Blog_header() {
                                         <a href="https://github.com/hassandev691" target='_blank' rel='noopener noreferrer'><FaGithub /></a>
                                     </button>
                                      <button className="icon-btn">
-                                        <a href="mailto:hassandev691@gmail.com" target='_blank' rel='noopener noreferrer'><IoMdMail /></a>
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hassandev691@gmail.com" target='_blank' rel='noopener noreferrer'><IoMdMail /></a>
                                     </button>
                                 </div>
                             </div>

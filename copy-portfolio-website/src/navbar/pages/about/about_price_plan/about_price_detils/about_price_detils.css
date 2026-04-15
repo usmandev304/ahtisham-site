@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   font-family: 'Inter', sans-serif;
+  display: none;
 }
 
 .pricing-grid {

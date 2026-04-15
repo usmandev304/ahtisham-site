@@ -32,7 +32,7 @@ export default function About() {
           <About_experience_2 />
           <About_price_plan />
           <About_price_detils />
-          <ContactSection />
+          <ContactSection type="about" />
         </div>
     )
 }

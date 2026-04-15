@@ -31,7 +31,7 @@ export default function NavbarLink() {
     { Icon: IoLogoGithub, url: "https://github.com/hassandev691" },
     { Icon: FaLinkedinIn, url: "https://linkedin.com/in/hassandev691" },
     { Icon: FaWhatsapp, url: "https://wa.me/966506470794" },
-   { Icon: IoMdMail, url: "mailto:hassandev691@gmail.com" },
+   { Icon: IoMdMail, url: "https://mail.google.com/mail/?view=cm&fs=1&to=hassandev691@gmail.com" },
   ];
 
   // Dropdown Menu Items Configuration

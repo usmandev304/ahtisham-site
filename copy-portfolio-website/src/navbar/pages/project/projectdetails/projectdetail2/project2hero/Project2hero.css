@@ -411,6 +411,10 @@
     .projectdetail-layout {
         max-width: 510px;
     }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 575px) {

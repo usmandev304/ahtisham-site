@@ -240,7 +240,6 @@
 @media (max-width: 1200px) {
     .services-wrapper {
         margin-bottom: 50px;
-        flex-direction: column-reverse;
     }
 
     .services-image {
@@ -253,6 +252,11 @@
     .services-container {
         max-width: 770px;
         margin: auto;
+    }
+
+
+    .services-wrapper {
+        flex-direction: column-reverse;
     }
 
     .service-card {
